@@ -1,0 +1,23 @@
+<section id="hero">
+    <div class="hero-canvas">
+        <div class="hero-card card">
+            <picture class="hero-card-image">
+                <source type="image/webp" srcset="/assets/profile/brant.webp">
+                <source type="image/png" srcset="/assets/profile/brant.png">
+                <source type="image/png" srcset="/assets/profile/brant.jpg">
+                <img src="/assets/profile/brant.png" alt="Brant Rusnak">
+            </picture>
+            <div class="hero-card-name">Brant Rusnak</div>
+            <div class="hero-card-subtitle">Web Developer.</div>
+            <div class="hero-card-links">
+                {{#sectionItems.info.links}}
+                    <div class="link">
+                        <a rel="noopener" aria-label="Link to {{label}}" target="_blank" href={{link}}>
+                            <i class="fab fa-3x fa-{{class}}"></i>
+                        </a>
+                    </div>
+                {{/sectionItems.info.links}}
+            </div>
+        </div>
+    </div>
+</section>

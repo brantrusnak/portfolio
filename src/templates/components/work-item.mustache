@@ -1,0 +1,40 @@
+<div class="work card">
+    <h2 class="card-title">
+        <span class="card-title-label">
+            {{label}}
+        </span>
+        {{#wip}}
+            <span class="work-in-progress">Work In Progress</span>
+        {{/wip}}
+    </h2>
+    {{#image}}
+        <picture class="card-image">
+            <source type="image/webp" data-srcset="{{image}}.webp">
+            <source type="image/png" data-srcset="{{image}}.png">
+            <img class="lazy" data-src="{{image}}.png" alt="{{label}} preview">
+        </picture>
+    {{/image}}
+    {{#description}}
+        <p class="card-description">{{description}}</p>
+    {{/description}}
+    <div class="card-tags">
+        {{#tags}} {{> tag}} {{/tags}}
+    </div>
+    <div class="card-buttons">
+        {{#source.demo}}
+		<a class="button" rel="noopener" href={{source.demo}} target="_blank">Demo</a>
+		{{/source.demo}}
+        {{#source.site}}
+		<a class="button" rel="noopener" href={{source.site}} target="_blank">Site</a>
+		{{/source.site}}
+        {{#source.backend}}
+		<a class="button" rel="noopener" href={{source.backend}} target="_blank">Backend</a>
+		{{/source.backend}}
+        {{#source.frontend}}
+		<a class="button" rel="noopener" href={{source.frontend}} target="_blank">Frontend</a>
+		{{/source.frontend}}
+        {{#source.code}}
+		<a class="button" rel="noopener" href={{source.code}} target="_blank">Code</a>
+		{{/source.code}}
+    </div>
+</div>

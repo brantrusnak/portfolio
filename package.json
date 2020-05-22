@@ -1,0 +1,30 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:ts": "webpack",
+    "build:scss": "sass --no-source-map src/scss:build/css --style compressed",
+    "build:html": "node ./node_modules/gulp/bin/gulp.js",
+    "start": "nodemon --watch src -e ts,scss,html,mustache -x \"npm run build:html && npm run build:scss && npm run build:ts\""
+  },
+  "author": "Brant Rusnak",
+  "license": "ISC",
+  "dependencies": {
+    "@types/mustache": "^4.0.1",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.1.1",
+    "gulp-mustache": "^4.1.2",
+    "mustache": "^4.0.1",
+    "nodemon": "^2.0.2",
+    "open-simplex-noise": "^2.3.1",
+    "sass": "^1.15.2",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.4",
+    "vanilla-lazyload": "^15.1.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "sourceMap": false,
+        "noImplicitAny": true,
+        "allowSyntheticDefaultImports": true,
+        "module": "CommonJS"
+    },
+    "include": [
+        "src/typescript/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        ".vscode"
+    ]
+}

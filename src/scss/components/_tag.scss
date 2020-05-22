@@ -1,0 +1,10 @@
+span.tag {
+    display: inline-block;
+    border-radius: 3px;
+    margin-bottom: 0.25rem;
+    margin-right: 0.25rem;
+    font-size: 0.8rem;
+    background: $tag-background;
+    color: $tag-color;
+    padding: $tag-padding;
+}

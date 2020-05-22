@@ -1,0 +1,49 @@
+section#info {
+    div.info-section {
+        display: flex;
+        flex-flow: row wrap;
+        // @include xs {
+        //     flex-direction: column;
+        // }
+        // @include sm {
+        //     flex-direction: column;
+        // }
+        // @include md {
+        //     flex-direction: column;
+        // }
+        // @include lg {
+        //     flex-direction: row;
+        // }
+        // @include xl {
+        //     flex-direction: row;
+        // }
+        .card {
+            flex: 1;
+        //     @include xs {
+        //         &:first-of-type{
+        //             margin: 0 0 2rem 0;
+        //         }
+        //     }
+        //     @include sm {
+        //         &:first-of-type{
+        //             margin: 0 0 2rem 0;
+        //         }
+        //     }
+        //     @include md {
+        //         &:first-of-type{
+        //             margin: 0 0 2rem 0;
+        //         }
+        //     }
+        //     @include lg {
+        //         &:first-of-type{
+        //             margin: 0 2rem 0 0;
+        //         }
+        //     }
+        //     @include xl {
+        //         &:first-of-type{
+        //             margin: 0 2rem 0 0;
+        //         }
+        //     }
+        }
+    }
+}

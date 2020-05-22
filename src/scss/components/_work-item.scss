@@ -1,0 +1,74 @@
+div.work {
+    position: relative;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    min-width: 0;
+    display: flex;
+    flex-flow: column nowrap;
+
+    @include xs {
+        flex: 1 1 auto;
+    }
+    @include sm {
+        flex: 1 1 auto;
+    }
+    @include md {
+        flex: 1 1 auto;
+    }
+    @include lg {
+        flex: 0 1 calc(50% - 1rem);
+        &:not(:nth-child(3n + 3)) {
+            margin-right: 0;
+        }
+        &:nth-child(odd) {
+            margin-right: 2rem;
+        }
+    }
+    @include xl {
+        flex: 0 1 calc(33.33% - 1.34rem);
+        &:nth-child(odd) {
+            margin-right: 0;
+        }
+        &:not(:nth-child(3n + 3)) {
+            margin-right: 2rem;
+        }
+    }
+
+    .work-label {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 1rem;
+        color: $card-title-color;
+        background: rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .work-in-progress {
+        color: #fff;
+        background: hotpink;
+        padding: 0.5rem;
+        font-weight: bold;
+        border-radius: 3px;
+        line-height: 1;
+        font-size: 0.9rem;
+    }
+    .work-description {
+        margin: 0;
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    div.work-tags {
+        padding: 1rem;
+    }
+    div.work-links {
+        padding: 1rem;
+    }
+    picture.card-image{
+        img {
+            // max-height: 500px;
+            display: block;
+            width: 100%;
+        }
+    }
+}
