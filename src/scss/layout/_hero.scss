@@ -5,6 +5,7 @@ section#hero {
     @include md { height: 100vh }
     @include lg { height: 100vh }
     @include xl { height: 100vh }
+    margin-bottom: 9rem;
 
     div.hero-canvas {
         position: relative;
