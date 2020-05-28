@@ -41,8 +41,8 @@ let ctx: {
     a: CanvasRenderingContext2D,
     b: CanvasRenderingContext2D
 };
-let center: number[];
-let tick: number;
+let center: number[] = [];
+let tick: number = 0;
 let particleProps: Float32Array;
 let noise3D: Noise3D;
 
@@ -54,7 +54,6 @@ function setup() {
 }
 
 function initParticles() {
-    tick = 0;
     noise3D = makeNoise3D(Date.now());
     particleProps = new Float32Array(particlePropsLength);
     for (let i = 0; i < particlePropsLength; i += particlePropCount) {
@@ -63,16 +62,15 @@ function initParticles() {
 }
 
 function initParticle(i: number) {
-    let x, y, vx, vy, life, ttl, speed, radius, hue;
-    x = rand(canvas.a.width);
-    y = center[1] + randRange(rangeY);
-    vx = 0;
-    vy = 0;
-    life = 0;
-    ttl = baseTTL + rand(rangeTTL);
-    speed = baseSpeed + rand(rangeSpeed);
-    radius = baseRadius + rand(rangeRadius);
-    hue = baseHue + rand(rangeHue);
+    let x = rand(canvas.a.width),
+        y = center[1] + randRange(rangeY),
+        vx = 0,
+        vy = 0,
+        life = 0,
+        ttl = baseTTL + rand(rangeTTL),
+        speed = baseSpeed + rand(rangeSpeed),
+        radius = baseRadius + rand(rangeRadius),
+        hue = baseHue + rand(rangeHue);
     particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
 }
 
@@ -83,21 +81,27 @@ function drawParticles() {
 }
 
 function updateParticle(i: number) {
-    let i2=1+i, i3=2+i, i4=3+i, i5=4+i, i6=5+i, i7=6+i, i8=7+i, i9=8+i;
-    let n, x, y, vx, vy, life, ttl, speed, x2, y2, radius, hue;
-  
-    x = particleProps[i];
-    y = particleProps[i2];  
-    n = noise3D(x * xOff, y * yOff, tick * zOff) * noiseSteps * TAU;
-    vx = lerp(particleProps[i3], cos(n), 0.5);
-    vy = lerp(particleProps[i4], sin(n), 0.5);
-    life = particleProps[i5];
-    ttl = particleProps[i6];
-    speed = particleProps[i7];
-    x2 = x + vx * speed;
-    y2 = y + vy * speed;
-    radius = particleProps[i8];
-    hue = particleProps[i9];
+    let i2 = 1 + i,
+        i3 = 2 + i,
+        i4 = 3 + i,
+        i5 = 4 + i,
+        i6 = 5 + i,
+        i7 = 6 + i,
+        i8 = 7 + i,
+        i9 = 8 + i,
+        x = particleProps[i],
+        y = particleProps[i2],
+        n = noise3D(x * xOff, y * yOff, tick * zOff) * noiseSteps * TAU,
+        vx = lerp(particleProps[i3], cos(n), 0.5),
+        vy = lerp(particleProps[i4], sin(n), 0.5),
+        life = particleProps[i5],
+        ttl = particleProps[i6],
+        speed = particleProps[i7],
+        x2 = x + vx * speed,
+        y2 = y + vy * speed,
+        radius = particleProps[i8],
+        hue = particleProps[i9];
+
     drawParticle(x, y, x2, y2, life, ttl, radius, hue);
     life++;
     particleProps[i] = x2;
@@ -141,7 +145,6 @@ function createCanvas() {
         a: canvas.a.getContext('2d', { alpha: false }),
         b: canvas.b.getContext('2d', { alpha: false })
     };
-    center = [];
 }
 
 function resize() {
@@ -161,16 +164,15 @@ function resize() {
     center[1] = 0.5 * canvas.a.height;
 }
 
-// We need to check if browser is Firefox because of bug https://bugzilla.mozilla.org/show_bug.cgi?id=1498291
 function renderGlow() {
     ctx.b.save();
-    ctx.b.filter = isFirefox ? null : 'blur(8px) brightness(200%)';
+    ctx.b.filter = 'blur(8px) brightness(200%)';
     ctx.b.globalCompositeOperation = 'lighter';
     ctx.b.drawImage(canvas.a, 0, 0);
     ctx.b.restore();
 
     ctx.b.save();
-    ctx.b.filter = isFirefox ? null : 'blur(4px) brightness(200%)';
+    ctx.b.filter = 'blur(4px) brightness(200%)';
     ctx.b.globalCompositeOperation = 'lighter';
     ctx.b.drawImage(canvas.a, 0, 0);
     ctx.b.restore();
@@ -183,6 +185,7 @@ function renderToScreen() {
     ctx.b.restore();
 }
 
+// We need to check if browser is Firefox for renderGlow because of bug https://bugzilla.mozilla.org/show_bug.cgi?id=1498291
 function draw() {
     tick++;
 
@@ -191,7 +194,7 @@ function draw() {
     ctx.b.fillRect(0, 0, canvas.a.width, canvas.a.height);
 
     drawParticles();
-    renderGlow();
+    isFirefox ? null : renderGlow();
     renderToScreen();
 
     window.requestAnimationFrame(draw);
