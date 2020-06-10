@@ -48,6 +48,16 @@ const sectionItems = {
     ],
     projects: [
         {
+            label: 'Pong',
+            image: '/assets/websites/pong',
+            description: "This is my attempt at recreating the classic video game, Pong. I built the game using the Canvas API in TypeScript. This was the first time I had to deal with collision detection. It was intimidating at first but after some reviews and experiments, it was quite easy and fun to solve! The Computer/AI is almost impossible to beat, considering it updates its paddle Y position based on the ball's Y position.",
+            tags: ['HTML5', 'CSS3', 'TypeScript', 'Webpack'],
+            source: {
+                code: 'https://github.com/brantrusnak/pong',
+                demo: 'https://brantpong.netlify.app/'
+            }
+        },
+        {
             label: 'jaTracker',
             image: '/assets/websites/jaTracker',
             wip: true,
