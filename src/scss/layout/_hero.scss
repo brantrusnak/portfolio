@@ -48,17 +48,19 @@ section#hero {
                     object-position: top;
                 }
             }
-            div.hero-card-name {
+            h1.hero-card-name {
                 margin-bottom: 0.5rem;
                 color: $card-title-color;
+                padding: 0;
                 @include xs { font-size: 2rem; }
                 @include sm { font-size: 2rem; }
                 @include md { font-size: 3rem; }
                 @include lg { font-size: 3rem; }
                 @include xl { font-size: 3rem; }
             }
-            div.hero-card-subtitle {
+            p.hero-card-subtitle {
                 margin-bottom: 1rem;
+                margin-top: 0;
                 @include xs { font-size: 1rem; }
                 @include sm { font-size: 1rem; }
                 @include md { font-size: 2rem; }
