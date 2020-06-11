@@ -6,7 +6,7 @@ const sectionItems = {
         {
             label: 'ICD Code Lookup',
             image: '/assets/websites/icd',
-            tags: ['HTML5', 'CSS3', 'SCSS', 'Angular', 'TypeScript', 'Angular Universal'],
+            tags: ['HTML5', 'CSS3', 'SCSS', 'Angular', 'TypeScript', 'Angular Universal', 'Apache'],
             source: {
                 site: 'https://stagingf.icdcodelookup.com/'
             }
@@ -14,7 +14,7 @@ const sectionItems = {
         {
             label: 'LIO',
             image: '/assets/websites/lio',
-            tags: ['HTML5', 'CSS3', 'SCSS', 'Bulma', 'TypeScript', 'Three.js', 'Tween.js', 'Webpack', 'Gulp', 'NodeJS', 'Apache'],
+            tags: ['HTML5', 'CSS3', 'SCSS', 'Bulma', 'TypeScript', 'Three.js', 'Tween.js', 'Webpack', 'Gulp', 'NodeJS', 'Apache', ],
             source: {
                 site: 'https://lio.agency/'
             }
@@ -30,7 +30,7 @@ const sectionItems = {
         {
             label: 'R. Jeffrey Kimball',
             image: '/assets/websites/rjk',
-            tags: ['HTML', 'Twig', 'CSS3', 'SCSS', 'Spectre CSS', 'JavaScript', 'jQuery', 'PHP', 'Composer', 'YAML'],
+            tags: ['HTML', 'Twig', 'CSS3', 'SCSS', 'Spectre CSS', 'JavaScript', 'jQuery', 'PHP', 'Composer', 'YAML', 'Apache', 'Grav', 'Webpack'],
             source: {
                 site: 'https://www.rjeffreykimball.com/'
             }
@@ -50,8 +50,8 @@ const sectionItems = {
         {
             label: 'Pong',
             image: '/assets/websites/pong',
-            description: "This is my attempt at recreating the classic video game, Pong. I built the game using the Canvas API in TypeScript. This was the first time I had to deal with collision detection. It was intimidating at first but after some reviews and experiments, it was quite easy and fun to solve! The Computer/AI is almost impossible to beat, considering it updates its paddle Y position based on the ball's Y position.",
-            tags: ['HTML5', 'CSS3', 'TypeScript', 'Webpack'],
+            description: "This is my attempt at recreating the classic video game, Pong. I built the game using the Canvas API and TypeScript. This was the first time I had to deal with collision detection. It was intimidating at first but after some reviews and experiments, it was quite easy and fun to solve! The Computer/AI is almost impossible to beat, considering it updates its paddle Y position based on the ball's Y position.",
+            tags: ['HTML5', 'CSS3', 'TypeScript', 'Webpack', 'Netlify'],
             source: {
                 code: 'https://github.com/brantrusnak/pong',
                 demo: 'https://brantpong.netlify.app/'
@@ -72,7 +72,7 @@ const sectionItems = {
             label: 'Portfolio',
             image: '/assets/websites/portfolio',
             description: "My portfolio. This was business as usual with SCSS/TypeScript, but I wanted to reduce the repeating of HTML. I used Mustache, utilizing templates and partials, to generate all the HTML, and Gulp to hold data and provide it to Mustache. The gulp task then writes all the mustache templates into 1 HTML file.",
-            tags: ['HTML5', 'Mustache', 'CSS3', 'SCSS', 'TypeScript', 'Gulp', 'Webpack'],
+            tags: ['HTML5', 'Mustache', 'CSS3', 'SCSS', 'TypeScript', 'Gulp', 'Webpack', 'Apache'],
             source: {
                 code: 'https://github.com/brantrusnak/portfolio'
             }
@@ -82,7 +82,7 @@ const sectionItems = {
             image: '/assets/websites/tlkr',
             wip: true,
             description: "tlkr. was a project that I always wanted to do, to create my own social media site. I used Angular for the frontend and NodeJS with Express and TypeScript for the backend. I used MySQL for storing data, and Sequlize on the backend to communicate to the database.",
-            tags: ['HTML5', 'CSS3', 'Angular', 'NodeJS', 'Express', 'Passport.js', 'MySQL', 'TypeScript', 'Sequelize'],
+            tags: ['HTML5', 'CSS3', 'Angular', 'NodeJS', 'Express', 'Passport.js', 'MySQL', 'TypeScript', 'Sequelize', 'Netlify', 'Heroku'],
             source: {
                 backend: 'https://github.com/brantrusnak/tlkr-api',
                 frontend: 'https://github.com/brantrusnak/tlkr-ui',
@@ -93,7 +93,7 @@ const sectionItems = {
             label: 'CSS Keyframe Delay Generator',
             image: '/assets/websites/keyframe_gen',
             description: "I developed this tool to assist in the generation of CSS keyframes with animation timings, delays/pauses, and states. Vanilla CSS animations can only be delayed at the start - So to delay the animation, you have to break the keyframe into 2 steps. The first step being the animation time and the second being the delay time. This tool does the math to calculate seconds to percentages in keyframes and generates a template for you.",
-            tags: ['HTML5', 'CSS3', 'JavaScript'],
+            tags: ['HTML5', 'CSS3', 'JavaScript', 'Netlify'],
             source: {
                 code: 'https://github.com/brantrusnak/keyframe-delay-generator',
                 demo: 'https://keyframe-delay-generator.netlify.app/'
