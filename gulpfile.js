@@ -42,7 +42,7 @@ const sectionItems = {
         },
         {
             label: 'theLandscape',
-            description: "I was the lead UI developer for theLandscape, an SEO software startup. I worked with product designers, and back end engineers to develop the UI from scratch using technologies such as Angular, TypeScript, and SCSS. I assumed responsibility for the technology and implementation decisions to best meet our business objectives. Occasionally, I hopped over to the back end to assist in development using Java with the Spring Framework.",
+            image: '/assets/websites/tls',
             tags: ['HTML5', 'CSS3', 'AngularJS', 'Angular', 'Java', 'PHP', 'Apache Thrift', 'MySQL', 'MongoDB']
         }
     ],
