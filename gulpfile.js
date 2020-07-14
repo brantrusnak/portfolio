@@ -37,7 +37,7 @@ const sectionItems = {
         },
         {
             label: 'Topics',
-            description: "Topics is a separate user-facing application that utilizes theLandscape's back end technology. We created this tool to address a specific need within the scope of SEO - to give detailed suggestions on how to produce meaningful content that ranks in organic search. I developed a completely separate UI for this project, including an interactive text editor that gives suggestions to content producers in real-time.",
+            image: '/assets/websites/topics',
             tags: ['HTML5', 'CSS3', 'Angular', 'Java', 'MySQL', 'MongoDB']
         },
         {
