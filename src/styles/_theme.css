@@ -1,0 +1,35 @@
+:root {
+    /* --background: #ffffff;
+    --foreground: #171717; */
+    --background: #0a0a0a;
+    --foreground: #ededed;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+
+    --color-navbar: #19191c;
+    --color-navbar-border: #3c3d40;
+
+    --color-card: #19191c;
+    --color-card-border: #3c3d40;
+
+    --color-gradient-from: oklch(54.6% 0.245 262.881);
+    --color-gradient-via: oklch(55.8% 0.288 302.321);
+    --color-gradient-to: oklch(59.2% 0.249 0.584);
+
+    --color-scrollbar-thumb: #828283;
+    --color-scrollbar-track: #292929;
+    
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+        
+    }
+}
