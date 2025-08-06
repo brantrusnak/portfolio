@@ -5,10 +5,8 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { FaChevronDown } from "react-icons/fa6";
 import { Button, Dropdown } from "@/components/ui";
-import ProtectedEmail from "@/components/Navigation/ProtectedEmail";
-import ProtectedResume from "@/components/Navigation/ProtectedResume";
 import { sections } from "@/components/Navigation/Navbar";
-import { ContactItem, useContactItems } from "@/hooks/useContactItems";
+import { useSocials } from "@/context/SocialsContext";
 
 interface NavbarMobileProps {
   activeSection: string;
@@ -16,45 +14,12 @@ interface NavbarMobileProps {
   setIsMobileMenuOpenAction: (isOpen: boolean) => void;
 }
 
-function renderDropdownItem(item: ContactItem, onClick: () => void) {
-  switch (item.id) {
-    case "email":
-      return (
-        <div className="px-8 py-3 text-white opacity-80 hover:opacity-100 hover:bg-blue-600/20 transition-all w-full">
-          <div className="flex items-center gap-3">
-            {item.icon}
-            <ProtectedEmail />
-          </div>
-        </div>
-      );
-    case "resume":
-      return (
-        <div className="px-8 py-3 text-white opacity-80 hover:opacity-100 hover:bg-blue-600/20 transition-all w-full">
-          <div className="flex items-center gap-3">
-            {item.icon}
-            <ProtectedResume />
-          </div>
-        </div>
-      );
-    default:
-      return (
-        <a
-          href={item.href}
-          className="flex items-center gap-3 px-8 py-3 text-white opacity-80 hover:opacity-100 hover:bg-blue-600/20 transition-all w-full"
-          onClick={onClick}
-        >
-          {item.icon} <span>{item.label}</span>
-        </a>
-      );
-  }
-}
-
 export default function NavbarMobile({
   activeSection,
   isMobileMenuOpen,
   setIsMobileMenuOpenAction,
 }: NavbarMobileProps) {
-  const contactItems = useContactItems();
+  const { socials } = useSocials();
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -188,12 +153,17 @@ export default function NavbarMobile({
                         </Dropdown.Trigger>
                         <Dropdown.Content className="relative w-full">
                           <div className="bg-card border-t border-b border-card-border">
-                            {contactItems.map((item) => (
+                            {socials.map((item) => (
                               <Dropdown.Item key={item.id}>
-                                {renderDropdownItem(
-                                  item,
-                                  handleMobileMenuClick,
-                                )}
+                                <a
+                                  href={item.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex items-center gap-3 px-8 py-3 text-white opacity-80 hover:opacity-100 hover:bg-blue-600/20 transition-all w-full"
+                                  onClick={handleMobileMenuClick}
+                                >
+                                  {item.icon} <span>{item.label}</span>
+                                </a>
                               </Dropdown.Item>
                             ))}
                           </div>

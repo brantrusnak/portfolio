@@ -3,9 +3,20 @@
 import { Social } from "@/types/Social";
 import { createContext, useContext, useState, useMemo } from "react";
 import type { ReactNode } from "react";
-import { FaGithubAlt, FaLinkedin } from "react-icons/fa6";
+import {
+  FaEnvelope,
+  FaFilePdf,
+  FaGithubAlt,
+  FaLinkedin,
+} from "react-icons/fa6";
 
 const initialSocials: readonly Social[] = [
+  {
+    id: "email",
+    label: "me@brantrusnak.com",
+    url: "mailto:me@brantrusnak.com",
+    icon: <FaEnvelope />,
+  },
   {
     id: "linkedin",
     label: "LinkedIn",
@@ -17,6 +28,12 @@ const initialSocials: readonly Social[] = [
     label: "GitHub",
     url: "https://github.com/brantrusnak/",
     icon: <FaGithubAlt />,
+  },
+  {
+    id: "resume",
+    label: "Résumé",
+    url: "/resume.pdf",
+    icon: <FaFilePdf />,
   },
 ];
 

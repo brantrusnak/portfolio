@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap");
 @import "tailwindcss";
 @import "./_theme.css";
-
-@plugin "tailwind-scrollbar";
+@import "./_scrollbar.css";
 
 @custom-variant dark (&:where(.dark, .dark *));

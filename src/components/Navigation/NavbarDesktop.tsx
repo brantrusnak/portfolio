@@ -1,15 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef, useCallback, Fragment } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { Button, Dropdown } from "@/components/ui";
 import { useDropdown } from "@/context/DropdownContext";
 import { sections } from "@/components/Navigation/Navbar";
 import ThemeSwitch from "@/components/Navigation/ThemeSwitch";
-import ProtectedEmail from "@/components/Navigation/ProtectedEmail";
-import ProtectedResume from "@/components/Navigation/ProtectedResume";
-import { ContactItem, useContactItems } from "@/hooks/useContactItems";
+import { useSocials } from "@/context/SocialsContext";
 
 interface NavbarDesktopProps {
   activeSection: string;
@@ -27,40 +25,10 @@ function DropdownStateTracker({
   return null;
 }
 
-function renderDropdownItem(item: ContactItem) {
-  switch (item.id) {
-    case "email":
-      return (
-        <div className="flex items-center cursor-pointer! text-sm text-white hover:bg-card-hover transition-all duration-200 hover:translate-x-1 hover:text-pink-400 w-full">
-          <ProtectedEmail className="px-4 py-2 flex items-center w-full overflow-visible cursor-pointer" />
-        </div>
-      );
-    case "resume":
-      return (
-        <div className="flex items-center cursor-pointer! text-sm text-white hover:bg-card-hover transition-all duration-200 hover:translate-x-1 hover:text-pink-400 w-full">
-          <ProtectedResume className="px-4 py-2 flex items-center w-full overflow-visible cursor-pointer" />
-        </div>
-      );
-    default:
-      return (
-        <Link
-          href={item.href}
-          target="_blank"
-          className="flex items-center px-4 py-2 text-sm text-white hover:bg-card-hover transition-all duration-200 hover:translate-x-1 hover:text-pink-400"
-        >
-          {item.icon && (
-            <span className="mr-2 size-[14px] text-[14px]">{item.icon}</span>
-          )}
-          {item.label}
-        </Link>
-      );
-  }
-}
-
 export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
   const [hoveredSection, setHoveredSection] = useState<string | null>(null);
   const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
-  const contactItems = useContactItems();
+  const { socials } = useSocials();
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const [underlineReady, setUnderlineReady] = useState(false);
   const linkRefs = useRef<HTMLSpanElement[]>([]);
@@ -161,9 +129,21 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
                 </Dropdown.Trigger>
                 <Dropdown.Content className="w-65">
                   <div className="py-1">
-                    {contactItems.map((item) => (
+                    {socials.map((item) => (
                       <Dropdown.Item key={item.id}>
-                        <Fragment>{renderDropdownItem(item)}</Fragment>
+                        <Link
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center px-4 py-2 text-sm text-white hover:bg-card-hover transition-all duration-200 hover:translate-x-1 hover:text-pink-400"
+                        >
+                          {item.icon && (
+                            <span className="mr-2 size-[14px] text-[14px]">
+                              {item.icon}
+                            </span>
+                          )}
+                          {item.label}
+                        </Link>
                       </Dropdown.Item>
                     ))}
                   </div>

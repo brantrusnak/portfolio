@@ -25,11 +25,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html
-      lang="en"
-      dir="ltr"
-      className="scroll-smooth scrollbar scrollbar-thumb-scrollbar-thumb scrollbar-track-scrollbar-track scrollbar-gutter-stable"
-    >
+    <html lang="en" dir="ltr" className="scroll-smooth">
       <body
         className={`${jetbrainsMono.className} antialiased bg-background text-foreground font-sans`}
       >
