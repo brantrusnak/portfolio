@@ -21,6 +21,7 @@ const initialProjects: readonly Project[] = [
       Skill.TailwindCSS,
       Skill.Motion,
     ],
+    link: "https://github.com/brantrusnak/portfolio",
   },
   {
     title: "Les Pelotines",
