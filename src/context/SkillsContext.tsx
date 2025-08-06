@@ -120,14 +120,17 @@ type SkillsContextType = {
 const SkillsContext = createContext<SkillsContextType | undefined>(undefined);
 
 export function SkillsProvider({ children }: { children: ReactNode }) {
-  const [skills] = useState<Readonly<Record<SkillCategory, SkillItem[]>>>(initialSkills);
-  const [activeFilter, setActiveFilter] = useState<SkillCategory | string | null>(
-    FEATURED_FILTER,
-  );
+  const [skills] =
+    useState<Readonly<Record<SkillCategory, SkillItem[]>>>(initialSkills);
+  const [activeFilter, setActiveFilter] = useState<
+    SkillCategory | string | null
+  >(FEATURED_FILTER);
 
   const filteredSkills = useMemo(() => {
     if (activeFilter === FEATURED_FILTER) {
-      return Object.values(skills).flat().filter((skill) => skill.featured);
+      return Object.values(skills)
+        .flat()
+        .filter((skill) => skill.featured);
     }
     if (activeFilter) {
       return skills[activeFilter as SkillCategory];

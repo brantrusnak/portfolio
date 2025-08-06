@@ -15,7 +15,7 @@ export interface DropdownProps extends PropsWithChildren {
 
 const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
   { children, className = "" },
-  ref
+  ref,
 ) {
   const internalRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);

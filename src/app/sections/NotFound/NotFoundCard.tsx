@@ -6,10 +6,16 @@ import { Button, Card } from "@/components/ui";
 
 export default function NotFoundCard() {
   return (
-    <Card role="alert" aria-labelledby="not-found-heading" aria-describedby="not-found-description">
+    <Card
+      role="alert"
+      aria-labelledby="not-found-heading"
+      aria-describedby="not-found-description"
+    >
       <Card.Header className="text-center">
         <FaExclamationTriangle className="text-6xl text-yellow-500 mx-auto mb-4" />
-        <h1 id="not-found-heading" className="text-4xl font-bold mb-2">404</h1>
+        <h1 id="not-found-heading" className="text-4xl font-bold mb-2">
+          404
+        </h1>
         <h2 className="text-xl text-foreground/80 mb-4">Page Not Found</h2>
       </Card.Header>
       <Card.Content>

@@ -29,7 +29,9 @@ export function CardExpandedMobile({
     onExitingChangeAction(false);
   };
 
-  const { header, content, expanded, footer } = Children.toArray(children).reduce(
+  const { header, content, expanded, footer } = Children.toArray(
+    children,
+  ).reduce(
     (acc, child) => {
       if (!isValidElement(child)) return acc;
       if (child.type === CardHeader) acc.header = child;
@@ -43,8 +45,8 @@ export function CardExpandedMobile({
       content: null,
       expanded: null,
       footer: null,
-    } as Record<string, ReactNode>
-  );  
+    } as Record<string, ReactNode>,
+  );
 
   return (
     <div

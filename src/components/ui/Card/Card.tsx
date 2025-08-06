@@ -27,8 +27,8 @@ interface CardProps {
   disableHover?: boolean;
   style?: CSSProperties;
   role?: string;
-  'aria-labelledby'?: string;
-  'aria-describedby'?: string;
+  "aria-labelledby"?: string;
+  "aria-describedby"?: string;
 }
 
 interface TypedComponent<P = unknown> {
@@ -41,17 +41,35 @@ interface TypedComponent<P = unknown> {
 (CardFooter as TypedComponent).componentType = "CardFooter";
 (CardExpandedContent as TypedComponent).componentType = "CardExpandedContent";
 
-const CARD_COMPONENT_TYPES = new Set(["CardHeader", "CardContent", "CardFooter"]);
+const CARD_COMPONENT_TYPES = new Set([
+  "CardHeader",
+  "CardContent",
+  "CardFooter",
+]);
 
 const Card = forwardRef(function Card(
-  { children, className = "", hoverEffect = true, disableHover = false, style, role, "aria-labelledby": ariaLabelledby, "aria-describedby": ariaDescribedby }: CardProps,
-  ref: ForwardedRef<HTMLDivElement>
+  {
+    children,
+    className = "",
+    hoverEffect = true,
+    disableHover = false,
+    style,
+    role,
+    "aria-labelledby": ariaLabelledby,
+    "aria-describedby": ariaDescribedby,
+  }: CardProps,
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   const [isHovered, setHovered] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [cardPosition, setCardPosition] = useState({ top: 0, left: 0, width: 0, height: 0 });
+  const [cardPosition, setCardPosition] = useState({
+    top: 0,
+    left: 0,
+    width: 0,
+    height: 0,
+  });
   const { addModal, removeModal } = useModal();
 
   const hasExpandedContent = useMemo(
@@ -59,9 +77,10 @@ const Card = forwardRef(function Card(
       Children.toArray(children).some(
         (child) =>
           isValidElement(child) &&
-          ((child.type as TypedComponent).componentType === "CardExpandedContent")
+          (child.type as TypedComponent).componentType ===
+            "CardExpandedContent",
       ),
-    [children]
+    [children],
   );
 
   const handleCardClick = () => {
@@ -99,7 +118,9 @@ const Card = forwardRef(function Card(
 
   return (
     <div className="relative size-full">
-      <div className={`size-full transition-opacity duration-0 ${shouldHide ? "opacity-0" : "opacity-100"}`}>
+      <div
+        className={`size-full transition-opacity duration-0 ${shouldHide ? "opacity-0" : "opacity-100"}`}
+      >
         <GradientBorder
           ref={ref}
           isActive={(hoverEffect && isHovered) || isExiting}

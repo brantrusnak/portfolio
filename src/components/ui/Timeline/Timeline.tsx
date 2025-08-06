@@ -1,6 +1,12 @@
 "use client";
 
-import { Children, cloneElement, isValidElement, type ReactNode, type ReactElement } from "react";
+import {
+  Children,
+  cloneElement,
+  isValidElement,
+  type ReactNode,
+  type ReactElement,
+} from "react";
 import type { TimelineItemProps } from "./TimelineItem";
 
 interface TimelineProps {

@@ -39,12 +39,12 @@ export default function ProjectCard({
           <div className="h-full bg-card-dark">
             <Card.Header>{project.title}</Card.Header>
             <Card.Content>
-            <div className="flex flex-wrap gap-2 mb-8">
-              {project.stack.map((tech: string) => (
-                <Tag key={tech}>{tech}</Tag>
-              ))}
-            </div>
-            {project.description}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {project.stack.map((tech: string) => (
+                  <Tag key={tech}>{tech}</Tag>
+                ))}
+              </div>
+              {project.description}
             </Card.Content>
             <Card.Footer>
               {project.link && (

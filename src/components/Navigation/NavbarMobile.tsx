@@ -16,10 +16,7 @@ interface NavbarMobileProps {
   setIsMobileMenuOpenAction: (isOpen: boolean) => void;
 }
 
-function renderDropdownItem(
-  item: ContactItem,
-  onClick: () => void
-) {
+function renderDropdownItem(item: ContactItem, onClick: () => void) {
   switch (item.id) {
     case "email":
       return (
@@ -51,7 +48,6 @@ function renderDropdownItem(
       );
   }
 }
-
 
 export default function NavbarMobile({
   activeSection,
@@ -192,18 +188,21 @@ export default function NavbarMobile({
                         </Dropdown.Trigger>
                         <Dropdown.Content className="relative w-full">
                           <div className="bg-card border-t border-b border-card-border">
-                          {contactItems.map((item) => (
-                            <Dropdown.Item key={item.id}>
-                              {renderDropdownItem(item, handleMobileMenuClick)}
-                            </Dropdown.Item>
-                          ))}
+                            {contactItems.map((item) => (
+                              <Dropdown.Item key={item.id}>
+                                {renderDropdownItem(
+                                  item,
+                                  handleMobileMenuClick,
+                                )}
+                              </Dropdown.Item>
+                            ))}
                           </div>
                         </Dropdown.Content>
                       </Dropdown>
                     </div>
                   );
                 }
-                
+
                 return (
                   <Link
                     key={id}

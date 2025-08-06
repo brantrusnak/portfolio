@@ -88,7 +88,7 @@ const initialWorks: readonly Work[] = [
       Skill.NodeJS,
       Skill.Apache,
       Skill.React,
-      Skill.NextJS
+      Skill.NextJS,
     ],
     link: "https://lio.agency/",
     time: { from: new Date("2019-04-01"), to: new Date("2019-09-01") },

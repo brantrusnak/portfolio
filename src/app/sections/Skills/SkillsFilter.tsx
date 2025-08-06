@@ -16,7 +16,11 @@ export default function SkillsFilter() {
   ];
 
   return (
-    <div role="group" aria-label="Skill category filters" className="overflow-x-auto py-2 mb-8">
+    <div
+      role="group"
+      aria-label="Skill category filters"
+      className="overflow-x-auto py-2 mb-8"
+    >
       <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-2 mx-auto px-4 min-w-max">
         {options.map((option) => (
           <Button

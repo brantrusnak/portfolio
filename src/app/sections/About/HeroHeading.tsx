@@ -34,7 +34,8 @@ export default function HeroHeading() {
         transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
         className="heading-p text-base md:text-lg leading-relaxed text-gray-300 max-w-prose mx-auto mb-4"
       >
-        I craft high-performance, user-focused web interfaces with polish and precision.
+        I craft high-performance, user-focused web interfaces with polish and
+        precision.
       </motion.p>
     </div>
   );

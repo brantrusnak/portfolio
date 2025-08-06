@@ -11,7 +11,9 @@ export default function SkillsSection() {
   return (
     <Section id="skills">
       <Section.Heading>Skills</Section.Heading>
-      <Section.Subtitle>What I&apos;ve used to bring ideas to life</Section.Subtitle>
+      <Section.Subtitle>
+        What I&apos;ve used to bring ideas to life
+      </Section.Subtitle>
       <SkillsFilter />
       <div className="mx-auto">
         <ul

@@ -32,7 +32,7 @@ export const GradientBorder = forwardRef(function GradientBorder(
     disableHover = false,
     inset = "-inset-0.5",
   }: GradientBorderProps,
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   const containerClass = `relative group ${className}`;
   const borderClass = `
@@ -55,9 +55,7 @@ export const GradientBorder = forwardRef(function GradientBorder(
         animate={{ opacity: isActive ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       />
-      <motion.div className={contentClass}>
-        {children}
-      </motion.div>
+      <motion.div className={contentClass}>{children}</motion.div>
     </motion.div>
   );
 });

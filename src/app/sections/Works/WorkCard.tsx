@@ -20,9 +20,7 @@ export function WorkCard({ work }: WorkCardProps) {
           {work.position}
         </h3>
         <div className="flex items-center gap-2 mb-2">
-          <h4 className="text-lg font-semibold text-white">
-            {work.title}
-          </h4>
+          <h4 className="text-lg font-semibold text-white">{work.title}</h4>
           <Tag>{work.type}</Tag>
         </div>
         {work.time && (
@@ -61,11 +59,8 @@ export function WorkCard({ work }: WorkCardProps) {
       </Card.Footer>
       <Card.ExpandedContent>
         <ul className="list-inside list-disc leading-relaxed">
-          {work.responsibilities?.map(responsibility => (
-            <li
-              key={responsibility}
-              className="text-sm text-gray-400 mb-2"
-            >
+          {work.responsibilities?.map((responsibility) => (
+            <li key={responsibility} className="text-sm text-gray-400 mb-2">
               {responsibility}
             </li>
           ))}

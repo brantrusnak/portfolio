@@ -7,7 +7,9 @@ export interface DropdownContextType {
   setIsOpen: (isOpen: boolean) => void;
 }
 
-const DropdownContext = createContext<DropdownContextType | undefined>(undefined);
+const DropdownContext = createContext<DropdownContextType | undefined>(
+  undefined,
+);
 
 export const useDropdown = () => {
   const context = useContext(DropdownContext);

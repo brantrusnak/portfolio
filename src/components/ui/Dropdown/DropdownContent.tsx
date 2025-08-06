@@ -27,12 +27,13 @@ const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
       if (!isOpen || !contentRef.current?.parentElement) return;
 
       requestAnimationFrame(() => {
-        const parentRect = contentRef.current!.parentElement!.getBoundingClientRect();
+        const parentRect =
+          contentRef.current!.parentElement!.getBoundingClientRect();
         const dropdownWidth = contentRef.current!.offsetWidth;
         const viewportWidth = window.innerWidth;
 
         setAlignment(
-          parentRect.right + dropdownWidth > viewportWidth ? "right" : "left"
+          parentRect.right + dropdownWidth > viewportWidth ? "right" : "left",
         );
       });
     }, [isOpen]);
@@ -57,7 +58,7 @@ const DropdownContent = forwardRef<HTMLDivElement, DropdownContentProps>(
         )}
       </AnimatePresence>
     );
-  }
+  },
 );
 
 DropdownContent.displayName = "DropdownContent";

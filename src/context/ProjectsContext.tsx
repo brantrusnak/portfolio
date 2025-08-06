@@ -9,7 +9,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "Portfolio",
     image: "/img/websites/portfolio.webp",
-    description: "Personal site to showcase my work and frontend thinking, built with Next.js and Tailwind for fast load times, clean design, and a smooth UX.",
+    description:
+      "Personal site to showcase my work and frontend thinking, built with Next.js and Tailwind for fast load times, clean design, and a smooth UX.",
     stack: [
       Skill.NextJS,
       Skill.React,
@@ -26,7 +27,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "Les Pelotines",
     image: "/img/websites/les_pelotines.webp",
-    description: "Ecommerce site for a countryside crochet business in France, built with Next.js, Storyblok, and Stripe to enable flexible content and seamless checkout.",
+    description:
+      "Ecommerce site for a countryside crochet business in France, built with Next.js, Storyblok, and Stripe to enable flexible content and seamless checkout.",
     stack: [
       Skill.NextJS,
       Skill.React,
@@ -45,7 +47,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "ICD Code Lookup",
     image: "/img/websites/icd.webp",
-    description: "Search tool for ICD-10 codes, built with Angular Universal for SEO and SSR. Focused on accessibility and fast lookup for clinicians.",
+    description:
+      "Search tool for ICD-10 codes, built with Angular Universal for SEO and SSR. Focused on accessibility and fast lookup for clinicians.",
     stack: [
       Skill.HTML5,
       Skill.CSS3,
@@ -60,7 +63,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "Innovative Extracts",
     image: "/img/websites/ie.webp",
-    description: "Ecommerce site for a veteran-owned CBD company, migrated from Shopify to BigCommerce to support custom storefront features and full seed-to-sale transparency.",
+    description:
+      "Ecommerce site for a veteran-owned CBD company, migrated from Shopify to BigCommerce to support custom storefront features and full seed-to-sale transparency.",
     stack: [
       Skill.BigCommerce,
       Skill.HTML5,
@@ -75,7 +79,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "R. Jeffrey Kimball",
     image: "/img/websites/rjk.webp",
-    description: "Redesigned the website for a business leadership coach using Grav with PHP, Twig, and Webpack to deliver a fast, modern site with clean structure and focused messaging.",
+    description:
+      "Redesigned the website for a business leadership coach using Grav with PHP, Twig, and Webpack to deliver a fast, modern site with clean structure and focused messaging.",
     stack: [
       Skill.HTML5,
       Skill.Twig,
@@ -96,7 +101,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "Topics",
     image: "/img/websites/topics.webp",
-    description: "Content analysis tool that scored and optimized writing in real time using keyword density and SEO signals. Built with Angular and Java for fast feedback and structured evaluation.",
+    description:
+      "Content analysis tool that scored and optimized writing in real time using keyword density and SEO signals. Built with Angular and Java for fast feedback and structured evaluation.",
     stack: [
       Skill.HTML5,
       Skill.CSS3,
@@ -109,7 +115,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "Pong",
     image: "/img/websites/pong.webp",
-    description: "A simple Pong clone built with HTML, CSS, and JavaScript to explore game logic, animation timing, and vanilla canvas rendering.",
+    description:
+      "A simple Pong clone built with HTML, CSS, and JavaScript to explore game logic, animation timing, and vanilla canvas rendering.",
     stack: [
       Skill.HTML5,
       Skill.CSS3,
@@ -123,7 +130,8 @@ const initialProjects: readonly Project[] = [
     title: "jaTracker",
     image: "/img/websites/jaTracker.webp",
     wip: true,
-    description: "A job app tracker built with React and Flask to keep tabs on applications, interviews, and progress during the job hunt.",
+    description:
+      "A job app tracker built with React and Flask to keep tabs on applications, interviews, and progress during the job hunt.",
     stack: [
       Skill.HTML5,
       Skill.CSS3,
@@ -139,7 +147,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "Portfolio (Old)",
     image: "/img/websites/portfolio_old.webp",
-    description: "Retired portfolio built with HTML, SCSS, Mustache, and TypeScript, deployed with Apache on DigitalOcean.",
+    description:
+      "Retired portfolio built with HTML, SCSS, Mustache, and TypeScript, deployed with Apache on DigitalOcean.",
     stack: [
       Skill.HTML5,
       Skill.Mustache,
@@ -157,7 +166,8 @@ const initialProjects: readonly Project[] = [
     title: "tlkr.",
     image: "/img/websites/tlkr.webp",
     wip: true,
-    description: "Prototype for a social media platform, built with Angular, Node.js, and MySQL using Passport.js for authentication. Focused on user posts, sessions, and full-stack integration.",
+    description:
+      "Prototype for a social media platform, built with Angular, Node.js, and MySQL using Passport.js for authentication. Focused on user posts, sessions, and full-stack integration.",
     stack: [
       Skill.HTML5,
       Skill.CSS3,
@@ -176,7 +186,8 @@ const initialProjects: readonly Project[] = [
   {
     title: "Keyframe Generator",
     image: "/img/websites/keyframe_gen.webp",
-    description: "Early utility tool built with HTML, CSS, and JavaScript to help generate CSS keyframes with calculated pauses and delays by converting timing into keyframe percentages.",
+    description:
+      "Early utility tool built with HTML, CSS, and JavaScript to help generate CSS keyframes with calculated pauses and delays by converting timing into keyframe percentages.",
     stack: [Skill.HTML5, Skill.CSS3, Skill.JavaScript, Skill.Netlify],
     link: "https://github.com/brantrusnak/keyframe-delay-generator",
   },

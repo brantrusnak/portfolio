@@ -12,7 +12,14 @@ export interface ButtonProps {
   rightIcon?: ReactNode;
   onClick?: () => void;
   active?: boolean;
-  variant?: "default" | "outline" | "primary" | "secondary" | "danger" | "ghost" | "icon";
+  variant?:
+    | "default"
+    | "outline"
+    | "primary"
+    | "secondary"
+    | "danger"
+    | "ghost"
+    | "icon";
   size?: "sm" | "md" | "lg";
   className?: string;
   type?: "button" | "submit" | "reset";
@@ -39,7 +46,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       ariaLabel = "",
       title,
     },
-    ref
+    ref,
   ) => {
     const isIconOnly = variant === "icon";
 
@@ -58,7 +65,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const variantClasses: Record<string, string> = {
       default: "bg-blue-600 text-white hover:brightness-90",
       outline: "bg-transparent border border-card-border hover:brightness-125",
-      primary: "bg-gradient-to-r from-gradient-from via-gradient-via to-gradient-to text-white shadow-md hover:brightness-110",
+      primary:
+        "bg-gradient-to-r from-gradient-from via-gradient-via to-gradient-to text-white shadow-md hover:brightness-110",
       secondary: "bg-card text-white hover:brightness-125",
       danger: "bg-red-500 text-white hover:brightness-90",
       ghost: "bg-transparent text-white opacity-60 hover:opacity-100",
@@ -77,7 +85,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading && "cursor-progress",
       disabled && "opacity-60 cursor-not-allowed",
       !isIconOnly && "w-full",
-      className
+      className,
     );
 
     return (
@@ -109,7 +117,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         </button>
       </GradientBorder>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";

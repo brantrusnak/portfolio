@@ -35,7 +35,7 @@ export function ParticlesLogic(props: ParticlesProps) {
 
   const linesGeo = useMemo(
     () => new THREE.CylinderGeometry(0.5, 0.5, 1, 4, 1),
-    []
+    [],
   );
 
   const linesMat = useMemo(
@@ -44,7 +44,7 @@ export function ParticlesLogic(props: ParticlesProps) {
         transparent: true,
         blending: THREE.AdditiveBlending,
       }),
-    []
+    [],
   );
 
   const noise = useMemo(() => new ImprovedNoise(), []);
@@ -74,7 +74,7 @@ export function ParticlesLogic(props: ParticlesProps) {
           baseRadius + rand(rangeRadius),
           baseHue + rand(rangeHue),
         ],
-        off
+        off,
       );
     },
     [
@@ -88,7 +88,7 @@ export function ParticlesLogic(props: ParticlesProps) {
       rangeRadius,
       baseHue,
       rangeHue,
-    ]
+    ],
   );
 
   const resetIfNeeded = useCallback(
@@ -107,7 +107,7 @@ export function ParticlesLogic(props: ParticlesProps) {
       }
       return false;
     },
-    [viewport.width, viewport.height, initParticle]
+    [viewport.width, viewport.height, initParticle],
   );
 
   useEffect(() => {
@@ -118,8 +118,7 @@ export function ParticlesLogic(props: ParticlesProps) {
     const move = (e: MouseEvent | Touch) => {
       const x = (e.clientX / size.width) * viewport.width - viewport.width / 2;
       const y =
-        -(e.clientY / size.height) * viewport.height +
-        viewport.height / 2;
+        -(e.clientY / size.height) * viewport.height + viewport.height / 2;
       mouse.current.set(x, y);
     };
 
@@ -183,7 +182,11 @@ export function ParticlesLogic(props: ParticlesProps) {
 
       dummy.position.set(x, y, 0);
       dummy.lookAt(x2, y2, 0);
-      dummy.scale.set(radius, radius, new THREE.Vector2(x2 - x, y2 - y).length());
+      dummy.scale.set(
+        radius,
+        radius,
+        new THREE.Vector2(x2 - x, y2 - y).length(),
+      );
       dummy.updateMatrix();
       meshRef.current.setMatrixAt(i / 9, dummy.matrix);
 

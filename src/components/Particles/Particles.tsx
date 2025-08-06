@@ -28,7 +28,9 @@ export default function Particles(props: ParticlesProps) {
 
   if (props.enabled === false || isReducedMotion) {
     return (
-      <div className={`fixed inset-0 -z-10 bg-black ${props.className ?? ""}`} />
+      <div
+        className={`fixed inset-0 -z-10 bg-black ${props.className ?? ""}`}
+      />
     );
   }
 

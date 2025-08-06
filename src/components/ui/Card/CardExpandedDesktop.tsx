@@ -1,6 +1,14 @@
 "use client";
 
-import React, { ReactNode, Children, isValidElement, MouseEvent, useEffect, useState, useCallback } from "react";
+import React, {
+  ReactNode,
+  Children,
+  isValidElement,
+  MouseEvent,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 import { GradientBorder } from "@/components/ui";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { CardHeader } from "./CardHeader";
@@ -48,7 +56,6 @@ export function CardExpandedDesktop({
       setIsAnimationComplete(false);
     }, 50);
   }, [isExpanded, onCloseAction, onExitingChangeAction]);
-  
 
   useEffect(() => {
     if (isAnimationComplete && isExpanded && !isExiting) {
@@ -71,7 +78,9 @@ export function CardExpandedDesktop({
 
   if (!children) return null;
 
-  const { header, content, expanded, footer } = Children.toArray(children).reduce(
+  const { header, content, expanded, footer } = Children.toArray(
+    children,
+  ).reduce(
     (acc, child) => {
       if (!isValidElement(child)) return acc;
       if (child.type === CardHeader) acc.header = child;
@@ -80,9 +89,11 @@ export function CardExpandedDesktop({
       else if (child.type === CardFooter) acc.footer = child;
       return acc;
     },
-    { header: null, content: null, expanded: null, footer: null } as Record<string, ReactNode>
+    { header: null, content: null, expanded: null, footer: null } as Record<
+      string,
+      ReactNode
+    >,
   );
-  
 
   return (
     <AnimatePresence
@@ -130,16 +141,17 @@ export function CardExpandedDesktop({
               height: "auto",
               opacity: 1,
             }}
-            exit={prefersReducedMotion
-              ? { opacity: 0 }
-              : {
-                  top: cardPosition.top,
-                  left: cardPosition.left,
-                  x: 0,
-                  y: 0,
-                  width: cardPosition.width,
-                  height: cardPosition.height,
-                }
+            exit={
+              prefersReducedMotion
+                ? { opacity: 0 }
+                : {
+                    top: cardPosition.top,
+                    left: cardPosition.left,
+                    x: 0,
+                    y: 0,
+                    width: cardPosition.width,
+                    height: cardPosition.height,
+                  }
             }
             transition={{ duration: 0.3 }}
             onAnimationComplete={() => setIsAnimationComplete(true)}
@@ -170,7 +182,9 @@ export function CardExpandedDesktop({
                 )}
                 {header}
                 {content}
-                <div className="flex-1 flex items-start justify-center overflow-y-auto">{expanded}</div>
+                <div className="flex-1 flex items-start justify-center overflow-y-auto">
+                  {expanded}
+                </div>
                 {footer}
               </div>
             </GradientBorder>

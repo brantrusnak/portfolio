@@ -1,16 +1,16 @@
 "use client";
 
-import { FaFilePdf } from 'react-icons/fa6';
+import { FaFilePdf } from "react-icons/fa6";
 
 interface ProtectedResumeProps {
   className?: string;
 }
 
 export default function ProtectedResume({ className }: ProtectedResumeProps) {
-  const resumePath = '/resume.pdf';
+  const resumePath = "/resume.pdf";
 
   const handleClick = () => {
-    window.open(resumePath, '_blank', 'noopener,noreferrer');
+    window.open(resumePath, "_blank", "noopener,noreferrer");
   };
 
   return (

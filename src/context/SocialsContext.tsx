@@ -31,9 +31,7 @@ export function SocialsProvider({ children }: { children: ReactNode }) {
   const value = useMemo(() => ({ socials }), [socials]);
 
   return (
-    <SocialsContext.Provider value={value}>
-      {children}
-    </SocialsContext.Provider>
+    <SocialsContext.Provider value={value}>{children}</SocialsContext.Provider>
   );
 }
 

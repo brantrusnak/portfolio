@@ -15,7 +15,11 @@ interface NavbarDesktopProps {
   activeSection: string;
 }
 
-function DropdownStateTracker({ setIsOpen }: { setIsOpen: (isOpen: boolean) => void }) {
+function DropdownStateTracker({
+  setIsOpen,
+}: {
+  setIsOpen: (isOpen: boolean) => void;
+}) {
   const { isOpen } = useDropdown();
   useEffect(() => {
     setIsOpen(isOpen);
@@ -44,7 +48,9 @@ function renderDropdownItem(item: ContactItem) {
           target="_blank"
           className="flex items-center px-4 py-2 text-sm text-white hover:bg-card-hover transition-all duration-200 hover:translate-x-1 hover:text-pink-400"
         >
-          {item.icon && <span className="mr-2 size-[14px] text-[14px]">{item.icon}</span>}
+          {item.icon && (
+            <span className="mr-2 size-[14px] text-[14px]">{item.icon}</span>
+          )}
           {item.label}
         </Link>
       );
@@ -64,7 +70,9 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
   const resizeTimer = useRef<NodeJS.Timeout | null>(null);
 
   const updateUnderlinePosition = useCallback(() => {
-    const sectionId = isContactDropdownOpen ? "contact" : hoveredSection || activeSection;
+    const sectionId = isContactDropdownOpen
+      ? "contact"
+      : hoveredSection || activeSection;
     const idx = sections.findIndex((s) => s.id === sectionId);
     const el = linkRefs.current[idx];
     const container = containerRef.current;
@@ -104,7 +112,9 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
   return (
     <nav className="flex justify-between items-center p-6 backdrop-blur-md border-b border-navbar-border bg-navbar sticky top-0 z-50">
       <span
-        ref={(el) => { if (el) linkRefs.current[0] = el; }}
+        ref={(el) => {
+          if (el) linkRefs.current[0] = el;
+        }}
         className="relative"
         onMouseEnter={() => setHoveredSection("about")}
         onMouseLeave={() => setHoveredSection(null)}
@@ -125,7 +135,9 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
         {sections.slice(1).map(({ id, label, isDropdown }, idx) => (
           <span
             key={id}
-            ref={(el) => { if (el) linkRefs.current[idx + 1] = el; }}
+            ref={(el) => {
+              if (el) linkRefs.current[idx + 1] = el;
+            }}
             onMouseEnter={() => setHoveredSection(id)}
             onMouseLeave={() => setHoveredSection(null)}
             className="relative"
