@@ -4,16 +4,26 @@ import { useEffect, useState } from "react";
 import NavbarDesktop from "@/components/Navigation/NavbarDesktop";
 import NavbarMobile from "@/components/Navigation/NavbarMobile";
 
+export enum SECTION_ID {
+  ABOUT = "about",
+  SKILLS = "skills",
+  WORK = "work",
+  PROJECTS = "projects",
+  CONTACT = "contact",
+}
+
 export const sections = [
-  { id: "about", label: "BR" },
-  { id: "skills", label: "Skills" },
-  { id: "work", label: "Work" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact", isDropdown: true },
+  { id: SECTION_ID.ABOUT, label: "BR" },
+  { id: SECTION_ID.SKILLS, label: "Skills" },
+  { id: SECTION_ID.WORK, label: "Work" },
+  { id: SECTION_ID.PROJECTS, label: "Projects" },
+  { id: SECTION_ID.CONTACT, label: "Contact", isDropdown: true },
 ];
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState<string>("about");
+  const [activeSection, setActiveSection] = useState<SECTION_ID>(
+    SECTION_ID.ABOUT,
+  );
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -22,7 +32,7 @@ export default function Navbar() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          let current = "about";
+          let current = SECTION_ID.ABOUT;
           for (const section of sections) {
             const el = document.getElementById(section.id);
             if (el) {
@@ -52,7 +62,6 @@ export default function Navbar() {
       </div>
       <div className="lg:hidden">
         <NavbarMobile
-          activeSection={activeSection}
           isMobileMenuOpen={isMobileMenuOpen}
           setIsMobileMenuOpenAction={setIsMobileMenuOpen}
         />

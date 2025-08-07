@@ -18,7 +18,7 @@ import { CardContent } from "./CardContent";
 import { CardExpandedContent } from "./CardExpandedContent";
 import { CardFooter } from "./CardFooter";
 import { CardExpanded } from "./CardExpanded";
-import { useModal } from "@/context/ModalContext";
+import { useModal } from "@/hooks/useModal";
 
 interface CardProps {
   children: ReactNode;

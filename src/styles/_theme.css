@@ -23,6 +23,11 @@
 
     --color-scrollbar-thumb: #828283;
     --color-scrollbar-track: #292929;
+
+    --color-tooltip-bg: #444;
+    --color-tooltip-text: #ededed;
+
+    --color-button-bg-outline: #141416;
 }
 
 @media (prefers-color-scheme: dark) {

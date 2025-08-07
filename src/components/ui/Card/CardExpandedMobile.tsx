@@ -54,7 +54,8 @@ export function CardExpandedMobile({
       onClick={(e) => e.target === e.currentTarget && close()}
     >
       <GradientBorder
-        isActive
+        isActive={true}
+        disableHover={true}
         className="w-[95%] h-[95%]"
         contentClasses="size-full"
       >

@@ -1,24 +1,19 @@
 "use client";
 
-import {
-  useState,
-  useRef,
-  useEffect,
-  forwardRef,
-  PropsWithChildren,
-} from "react";
+import { useRef, useEffect, forwardRef, PropsWithChildren } from "react";
 import DropdownContext from "@/context/DropdownContext";
 
 export interface DropdownProps extends PropsWithChildren {
   className?: string;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
 const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
-  { children, className = "" },
+  { children, className = "", isOpen, setIsOpen },
   ref,
 ) {
   const internalRef = useRef<HTMLDivElement>(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (!ref) return;
@@ -51,7 +46,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscape);
     };
-  }, []);
+  }, [setIsOpen]);
 
   return (
     <DropdownContext.Provider value={{ isOpen, setIsOpen }}>

@@ -4,12 +4,13 @@ import type { Metadata } from "next";
 import Provider from "@/app/Provider";
 import "@/styles/app.css";
 import Particles from "@/components/Particles/Particles";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
 });
+const GA_TRACKING_ID = "G-K1NL6FV381";
 
 export const metadata: Metadata = {
   title: "Brant Rusnak",
@@ -29,12 +30,12 @@ export default function RootLayout({
       <body
         className={`${jetbrainsMono.className} antialiased bg-background text-foreground font-sans`}
       >
-        <GoogleAnalytics />
         <Provider>
           {children}
           <Particles />
         </Provider>
       </body>
+      <GoogleAnalytics gaId={GA_TRACKING_ID} />
     </html>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import type { PropsWithChildren, KeyboardEvent } from "react";
-import { useDropdown } from "@/context/DropdownContext";
+import { useDropdown } from "@/hooks/useDropdown";
 
 interface DropdownTriggerProps extends PropsWithChildren {
   className?: string;
@@ -19,7 +19,7 @@ function DropdownTrigger({ children, className = "" }: DropdownTriggerProps) {
 
   return (
     <div
-      className={`cursor-pointer select-none ${className}`}
+      className={`select-none ${className}`}
       onClick={() => setIsOpen(!isOpen)}
       onKeyDown={handleKeyDown}
       role="button"

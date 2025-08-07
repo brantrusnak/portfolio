@@ -19,10 +19,10 @@ export default function ProjectCard({
       className="h-full w-full"
       initial={{ opacity: 0, x: isEven ? "-20px" : "20px" }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: "easeInOut" }}
     >
-      <Card className="h-full w-full" disableHover={true}>
+      <Card className="h-full w-full" disableHover={true} hoverEffect={false}>
         <Card.Content className="p-0! grid grid-cols-1 grid-rows-2 md:grid-rows-1 md:grid-cols-2 h-full">
           <div className="relative">
             <Image

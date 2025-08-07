@@ -10,11 +10,7 @@ interface DropdownItemProps extends PropsWithChildren {
 function DropdownItem({ children, className = "" }: DropdownItemProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -10 }}
-      transition={{ duration: 0.2 }}
-      className={`px-2 py-1 ${className}`}
+      className={`px-2 py-1 text-sm transition-all duration-200 hover:text-pink-400 hover:translate-x-1 ${className}`}
       role="menuitem"
       tabIndex={-1}
     >

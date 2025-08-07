@@ -21,7 +21,7 @@ export default function SkillsFilter() {
       aria-label="Skill category filters"
       className="overflow-x-auto py-2 mb-8"
     >
-      <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-2 mx-auto px-4 min-w-max">
+      <div className="flex flex-wrap gap-2 sm:gap-3 justify-center px-1 max-w-8xl min-w-max">
         {options.map((option) => (
           <Button
             key={String(option.value)}
@@ -29,7 +29,7 @@ export default function SkillsFilter() {
             active={activeFilter === option.value}
             aria-pressed={activeFilter === option.value}
             size="md"
-            variant="secondary"
+            variant="outline"
             className="flex-shrink-0"
             ariaLabel={option.label}
           >

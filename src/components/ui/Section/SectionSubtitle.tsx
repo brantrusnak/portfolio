@@ -8,7 +8,7 @@ interface SubtitleProps {
 }
 
 function SectionSubtitle({ children, className = "" }: SubtitleProps) {
-  return <p className={`text-gray-300 mb-4 ${className}`}>{children}</p>;
+  return <p className={`text-gray-300 mb-12 ${className}`}>{children}</p>;
 }
 
 export { SectionSubtitle };

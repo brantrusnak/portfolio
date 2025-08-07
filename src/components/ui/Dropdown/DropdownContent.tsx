@@ -9,7 +9,7 @@ import {
   useImperativeHandle,
 } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useDropdown } from "@/context/DropdownContext";
+import { useDropdown } from "@/hooks/useDropdown";
 
 interface DropdownContentProps extends PropsWithChildren {
   className?: string;

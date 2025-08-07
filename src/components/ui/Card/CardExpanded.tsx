@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useMobile } from "@/hooks/useMediaQuery";
+import { usePlatform, PLATFORM } from "@/hooks/usePlatform";
 import { CardExpandedMobile } from "./CardExpandedMobile";
 import { CardExpandedDesktop } from "./CardExpandedDesktop";
 
@@ -25,9 +25,9 @@ export function CardExpanded({
   onExitingChangeAction,
   cardPosition,
 }: CardExpandedProps) {
-  const isMobile = useMobile();
+  const platform = usePlatform();
 
-  if (isMobile) {
+  if (platform === PLATFORM.MOBILE) {
     return (
       <CardExpandedMobile
         isExpanded={isExpanded}

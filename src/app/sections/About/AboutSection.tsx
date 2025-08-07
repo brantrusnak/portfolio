@@ -14,7 +14,7 @@ export default function AboutSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.6 }}
         transition={{ ease: [0.455, 0.03, 0.515, 0.955], delay: 0.6 }}
-        className="hero min-w-full flex flex-col md:flex-row justify-center items-center align-center gap-8 md:gap-12 px-4 mb-8"
+        className="hero min-w-full flex flex-col md:flex-row justify-center items-center align-center gap-8 md:gap-10 px-4 mb-8"
       >
         <ProfileImage />
         <HeroHeading />

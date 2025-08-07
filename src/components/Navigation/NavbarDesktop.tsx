@@ -4,30 +4,16 @@ import Link from "next/link";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import { Button, Dropdown } from "@/components/ui";
-import { useDropdown } from "@/context/DropdownContext";
-import { sections } from "@/components/Navigation/Navbar";
+import { SECTION_ID, sections } from "@/components/Navigation/Navbar";
 import ThemeSwitch from "@/components/Navigation/ThemeSwitch";
 import { useSocials } from "@/context/SocialsContext";
 
 interface NavbarDesktopProps {
-  activeSection: string;
-}
-
-function DropdownStateTracker({
-  setIsOpen,
-}: {
-  setIsOpen: (isOpen: boolean) => void;
-}) {
-  const { isOpen } = useDropdown();
-  useEffect(() => {
-    setIsOpen(isOpen);
-  }, [isOpen, setIsOpen]);
-  return null;
+  activeSection: SECTION_ID;
 }
 
 export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
-  const [hoveredSection, setHoveredSection] = useState<string | null>(null);
-  const [isContactDropdownOpen, setIsContactDropdownOpen] = useState(false);
+  const [hoveredSection, setHoveredSection] = useState<SECTION_ID | null>(null);
   const { socials } = useSocials();
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const [underlineReady, setUnderlineReady] = useState(false);
@@ -36,10 +22,11 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
   const [hasMounted, setHasMounted] = useState(false);
   const [isResizing, setIsResizing] = useState(false);
   const resizeTimer = useRef<NodeJS.Timeout | null>(null);
+  const [isContactDropdownOpen, setContactDropdownOpen] = useState(false);
 
   const updateUnderlinePosition = useCallback(() => {
     const sectionId = isContactDropdownOpen
-      ? "contact"
+      ? SECTION_ID.CONTACT
       : hoveredSection || activeSection;
     const idx = sections.findIndex((s) => s.id === sectionId);
     const el = linkRefs.current[idx];
@@ -77,6 +64,10 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
     updateUnderlinePosition();
   }, [updateUnderlinePosition]);
 
+  const handleContactItemClick = () => {
+    setContactDropdownOpen(false);
+  };
+
   return (
     <nav className="flex justify-between items-center p-6 backdrop-blur-md border-b border-navbar-border bg-navbar sticky top-0 z-50">
       <span
@@ -84,21 +75,17 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
           if (el) linkRefs.current[0] = el;
         }}
         className="relative"
-        onMouseEnter={() => setHoveredSection("about")}
+        onMouseEnter={() => setHoveredSection(SECTION_ID.ABOUT)}
         onMouseLeave={() => setHoveredSection(null)}
       >
-        <Link
-          href="#about"
-          className="font-bold text-xl transition-colors text-white opacity-100"
-          style={{ textDecoration: "none" }}
-        >
+        <Link href="#about" className="font-bold text-xl">
           BR
         </Link>
       </span>
 
       <div
         ref={containerRef}
-        className="relative hidden md:flex items-center gap-2 sm:gap-4 text-sm"
+        className="relative flex items-center gap-4 text-sm"
       >
         {sections.slice(1).map(({ id, label, isDropdown }, idx) => (
           <span
@@ -111,52 +98,43 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
             className="relative"
           >
             {isDropdown ? (
-              <Dropdown>
-                {id === "contact" && (
-                  <DropdownStateTracker setIsOpen={setIsContactDropdownOpen} />
-                )}
+              <Dropdown
+                isOpen={isContactDropdownOpen}
+                setIsOpen={setContactDropdownOpen}
+              >
                 <Dropdown.Trigger>
                   <Button
                     size="sm"
-                    variant="ghost"
                     ariaLabel={label}
-                    rightIcon={
-                      <FaChevronDown className="transition-transform duration-300" />
-                    }
+                    rightIcon={<FaChevronDown />}
                   >
                     {label}
                   </Button>
                 </Dropdown.Trigger>
-                <Dropdown.Content className="w-65">
-                  <div className="py-1">
-                    {socials.map((item) => (
-                      <Dropdown.Item key={item.id}>
-                        <Link
-                          href={item.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center px-4 py-2 text-sm text-white hover:bg-card-hover transition-all duration-200 hover:translate-x-1 hover:text-pink-400"
-                        >
-                          {item.icon && (
-                            <span className="mr-2 size-[14px] text-[14px]">
-                              {item.icon}
-                            </span>
-                          )}
-                          {item.label}
-                        </Link>
-                      </Dropdown.Item>
-                    ))}
-                  </div>
+                <Dropdown.Content className="w-55">
+                  {socials.map((item) => (
+                    <Dropdown.Item key={item.id} className="w-full">
+                      <Link
+                        href={item.url}
+                        onClick={handleContactItemClick}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center px-4 py-2 gap-2"
+                      >
+                        {item.icon && (
+                          <span className="size-[14px] text-[14px]">
+                            {item.icon}
+                          </span>
+                        )}
+                        {item.label}
+                      </Link>
+                    </Dropdown.Item>
+                  ))}
                 </Dropdown.Content>
               </Dropdown>
             ) : (
               <Link href={`#${id}`}>
-                <Button
-                  size="sm"
-                  className="font-semibold px-1 pb-1"
-                  variant="ghost"
-                  ariaLabel={label}
-                >
+                <Button size="sm" variant="ghost" ariaLabel={label}>
                   {label}
                 </Button>
               </Link>

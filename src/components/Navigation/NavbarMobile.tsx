@@ -1,35 +1,39 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { FaChevronDown } from "react-icons/fa6";
 import { Button, Dropdown } from "@/components/ui";
 import { sections } from "@/components/Navigation/Navbar";
 import { useSocials } from "@/context/SocialsContext";
+import { useModal } from "@/hooks/useModal";
 
 interface NavbarMobileProps {
-  activeSection: string;
   isMobileMenuOpen: boolean;
   setIsMobileMenuOpenAction: (isOpen: boolean) => void;
 }
 
 export default function NavbarMobile({
-  activeSection,
   isMobileMenuOpen,
   setIsMobileMenuOpenAction,
 }: NavbarMobileProps) {
   const { socials } = useSocials();
+  const { addModal, removeModal } = useModal();
+  const [isContactDropdownOpen, setContactDropdownOpen] = useState(false);
+
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
+      addModal();
     } else {
-      document.body.style.overflow = "unset";
+      removeModal();
     }
     return () => {
-      document.body.style.overflow = "unset";
+      if (isMobileMenuOpen) {
+        removeModal();
+      }
     };
-  }, [isMobileMenuOpen]);
+  }, [isMobileMenuOpen, addModal, removeModal]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -48,6 +52,7 @@ export default function NavbarMobile({
   }, [isMobileMenuOpen, setIsMobileMenuOpenAction]);
 
   const handleMobileMenuClick = () => {
+    setContactDropdownOpen(false);
     setIsMobileMenuOpenAction(false);
   };
 
@@ -69,7 +74,7 @@ export default function NavbarMobile({
         </div>
 
         <Button
-          className="hamburger p-2 text-white"
+          className="hamburger p-2"
           onClick={() => setIsMobileMenuOpenAction(!isMobileMenuOpen)}
           ariaLabel="Toggle menu"
         >
@@ -133,55 +138,53 @@ export default function NavbarMobile({
             transition={{ type: "spring", bounce: 0.1, duration: 0.3 }}
             className="mobile-menu fixed inset-0 z-40 bg-navbar"
           >
-            <div className="mobile-menu flex flex-col h-full pt-22">
+            <div className="flex flex-col h-full pt-22 gap-2">
               {sections.slice(1).map(({ id, label, isDropdown }) => {
                 if (isDropdown) {
                   return (
-                    <div key={id} className="flex flex-col">
-                      <Dropdown>
+                    <div key={id} className="flex flex-col mx-2">
+                      <Dropdown
+                        isOpen={isContactDropdownOpen}
+                        setIsOpen={setContactDropdownOpen}
+                      >
                         <Dropdown.Trigger>
-                          <button
-                            className={`flex justify-between items-center px-6 py-4 text-white w-full ${
-                              activeSection === id
-                                ? "opacity-100 bg-blue-600/10"
-                                : "opacity-60"
-                            } hover:opacity-100 hover:bg-blue-600/20 transition-all`}
+                          <Button
+                            className="justify-start px-6! py-4!"
+                            rightIcon={<FaChevronDown />}
+                            disableHover
                           >
-                            <span>{label}</span>
-                            <FaChevronDown className="transition-transform duration-300" />
-                          </button>
+                            {label}
+                          </Button>
                         </Dropdown.Trigger>
-                        <Dropdown.Content className="relative w-full">
-                          <div className="bg-card border-t border-b border-card-border">
-                            {socials.map((item) => (
-                              <Dropdown.Item key={item.id}>
-                                <a
-                                  href={item.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="flex items-center gap-3 px-8 py-3 text-white opacity-80 hover:opacity-100 hover:bg-blue-600/20 transition-all w-full"
-                                  onClick={handleMobileMenuClick}
-                                >
-                                  {item.icon} <span>{item.label}</span>
-                                </a>
-                              </Dropdown.Item>
-                            ))}
-                          </div>
+                        <Dropdown.Content className="w-full">
+                          {socials.map((item) => (
+                            <Dropdown.Item key={item.id}>
+                              <Link
+                                href={item.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center px-4 py-2 gap-2"
+                                onClick={handleMobileMenuClick}
+                              >
+                                {item.icon && (
+                                  <span className="size-[14px] text-[14px]">
+                                    {item.icon}
+                                  </span>
+                                )}
+                                {item.label}
+                              </Link>
+                            </Dropdown.Item>
+                          ))}
                         </Dropdown.Content>
                       </Dropdown>
                     </div>
                   );
                 }
-
                 return (
                   <Link
                     key={id}
                     href={`#${id}`}
-                    className={`px-6 py-4 text-white ${
-                      activeSection === id
-                        ? "opacity-100 bg-blue-600/10"
-                        : "opacity-60"
-                    } hover:opacity-100 hover:bg-blue-600/20 transition-all`}
+                    className={`px-6 py-4 hover:bg-blue-600/20 transition-all duration-200`}
                     onClick={handleMobileMenuClick}
                   >
                     {label}

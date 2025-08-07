@@ -27,6 +27,7 @@ export interface ButtonProps {
   loading?: boolean;
   ariaLabel?: string;
   title?: string;
+  disableHover?: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -45,13 +46,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       loading = false,
       ariaLabel = "",
       title,
+      disableHover = false,
     },
     ref,
   ) => {
     const isIconOnly = variant === "icon";
 
     const sizeClasses = {
-      sm: "px-3 py-1 text-xs",
+      sm: "px-3 py-1.5 text-xs",
       md: "px-4 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm",
       lg: "px-6 py-2.5 text-sm sm:text-base",
     };
@@ -64,7 +66,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantClasses: Record<string, string> = {
       default: "bg-blue-600 text-white hover:brightness-90",
-      outline: "bg-transparent border border-card-border hover:brightness-125",
+      outline:
+        "bg-button-bg-outline backdrop-blur-md border border-white/10 text-white hover:bg-[#1a1a1d] hover:border-white/20",
       primary:
         "bg-gradient-to-r from-gradient-from via-gradient-via to-gradient-to text-white shadow-md hover:brightness-110",
       secondary: "bg-card text-white hover:brightness-125",
@@ -91,6 +94,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <GradientBorder
         isActive={active || isIconOnly}
+        disableHover={disableHover}
         borderRadius={isIconOnly ? "rounded-full" : "rounded-md"}
         contentClasses={isIconOnly ? "h-full w-full" : "h-full"}
       >

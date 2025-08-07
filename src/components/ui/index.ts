@@ -5,3 +5,4 @@ export { GradientBorder } from "./GradientBorder";
 export { Section } from "./Section";
 export { Tag } from "./Tag";
 export { Timeline } from "./Timeline";
+export { Tooltip } from "./Tooltip";
