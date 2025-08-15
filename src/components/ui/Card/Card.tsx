@@ -11,6 +11,7 @@ import {
   isValidElement,
   ReactElement,
   useMemo,
+  useEffect,
 } from "react";
 import { GradientBorder } from "@/components/ui";
 import { CardHeader } from "./CardHeader";
@@ -71,6 +72,40 @@ const Card = forwardRef(function Card(
     height: 0,
   });
   const { addModal, removeModal } = useModal();
+  const prevExpandedRef = useRef(isExpanded);
+  const didIncrementModal = useRef(false);
+  const prevExitingRef = useRef(isExiting);
+
+  useEffect(() => {
+    const prev = prevExpandedRef.current;
+    if (prev !== isExpanded && isExpanded) {
+      if (!didIncrementModal.current) {
+        addModal();
+        didIncrementModal.current = true;
+      }
+    }
+    prevExpandedRef.current = isExpanded;
+  }, [isExpanded, addModal]);
+
+  useEffect(() => {
+    const prev = prevExitingRef.current;
+    if (prev === true && isExiting === false) {
+      if (didIncrementModal.current) {
+        removeModal();
+        didIncrementModal.current = false;
+      }
+    }
+    prevExitingRef.current = isExiting;
+  }, [isExiting, removeModal]);
+
+  useEffect(() => {
+    return () => {
+      if (didIncrementModal.current) {
+        removeModal();
+        didIncrementModal.current = false;
+      }
+    };
+  }, [removeModal]);
 
   const hasExpandedContent = useMemo(
     () =>
@@ -93,15 +128,11 @@ const Card = forwardRef(function Card(
         height: rect.height,
       });
       setIsExpanded(true);
-      addModal();
     }
   };
 
   const handleCloseExpanded = () => {
     setIsExpanded(false);
-    setTimeout(() => {
-      removeModal();
-    }, 250);
   };
 
   const handleExitingChange = (value: boolean) => {

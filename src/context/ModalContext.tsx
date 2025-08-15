@@ -1,6 +1,13 @@
 "use client";
 
-import React, { createContext, useState, useEffect, ReactNode } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  ReactNode,
+  useCallback,
+  useMemo,
+} from "react";
 
 interface ModalContextType {
   openModals: number;
@@ -23,22 +30,27 @@ export function ModalProvider({ children }: ModalProviderProps) {
     if (typeof document === "undefined") return;
 
     if (openModals > 0) {
-      document.body.classList.add("overflow-hidden!");
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.classList.remove("overflow-hidden!");
+      document.body.classList.remove("overflow-hidden");
     }
   }, [openModals]);
 
-  const addModal = () => {
+  const addModal = useCallback(() => {
     setOpenModals((prev) => prev + 1);
-  };
+  }, []);
 
-  const removeModal = () => {
+  const removeModal = useCallback(() => {
     setOpenModals((prev) => Math.max(0, prev - 1));
-  };
+  }, []);
+
+  const value = useMemo(
+    () => ({ openModals, addModal, removeModal }),
+    [openModals, addModal, removeModal],
+  );
 
   return (
-    <ModalContext.Provider value={{ openModals, addModal, removeModal }}>
+    <ModalContext.Provider value={value}>
       {children}
     </ModalContext.Provider>
   );

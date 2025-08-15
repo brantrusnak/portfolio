@@ -49,12 +49,10 @@ export function CardExpandedDesktop({
     setShowCloseButton(false);
     setShowOverlay(false);
     setCardZIndex(40);
-    setTimeout(() => {
-      setIsExiting(true);
-      onExitingChangeAction(true);
-      onCloseAction();
-      setIsAnimationComplete(false);
-    }, 50);
+    setIsExiting(true);
+    onExitingChangeAction(true);
+    onCloseAction();
+    setIsAnimationComplete(false);
   }, [isExpanded, onCloseAction, onExitingChangeAction]);
 
   useEffect(() => {

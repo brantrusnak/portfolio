@@ -83,26 +83,23 @@ export default function WavingEmoji() {
     );
   };
 
-  useEffect(() => {
+  const waveOnce = () => {
     if (prefersReducedMotion) return;
-
-    const timeout = setTimeout(() => {
-      animate(
-        scope.current,
-        {
-          rotateZ: [0, WAVE_ROTATION],
-        },
-        {
-          duration: getDuration(0, WAVE_ROTATION),
-          ease: EASE,
-          repeat: 3,
-          repeatType: "reverse",
-        },
-      );
-    }, 1000);
-
-    return () => clearTimeout(timeout);
-  }, [animate, scope, prefersReducedMotion]);
+  
+    const controls = animate(
+      scope.current,
+      { rotateZ: [0, WAVE_ROTATION] },
+      {
+        duration: getDuration(0, WAVE_ROTATION),
+        ease: EASE,
+        repeat: 3,
+        repeatType: "reverse",
+        delay: 1,
+      },
+    );
+  
+    return () => controls.stop();
+  };
 
   return (
     <motion.svg
@@ -110,6 +107,7 @@ export default function WavingEmoji() {
       width="100"
       height="100"
       viewBox="0 0 100 100"
+      onViewportEnter={waveOnce}
       onMouseEnter={startWave}
       onMouseLeave={resetWave}
       className="inline-flex cursor-default origin-[70%_70%] rotate-0"

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, forwardRef, PropsWithChildren } from "react";
 import DropdownContext from "@/context/DropdownContext";
+import { useModal } from "@/hooks/useModal";
 
 export interface DropdownProps extends PropsWithChildren {
   className?: string;
@@ -14,6 +15,9 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
   ref,
 ) {
   const internalRef = useRef<HTMLDivElement>(null);
+  const { addModal, removeModal } = useModal();
+  const prevOpenRef = useRef(isOpen);
+  const openRef = useRef(isOpen);
 
   useEffect(() => {
     if (!ref) return;
@@ -23,6 +27,24 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(function Dropdown(
       (ref as React.RefObject<HTMLDivElement>).current = internalRef.current!;
     }
   }, [ref]);
+
+  useEffect(() => {
+    const prev = prevOpenRef.current;
+    if (prev !== isOpen) {
+      if (isOpen) addModal();
+      else removeModal();
+      prevOpenRef.current = isOpen;
+      openRef.current = isOpen;
+    } else {
+      openRef.current = isOpen;
+    }
+  }, [isOpen, addModal, removeModal]);
+
+  useEffect(() => {
+    return () => {
+      if (openRef.current) removeModal();
+    };
+  }, [removeModal]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

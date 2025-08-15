@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { FaChevronDown } from "react-icons/fa6";
@@ -21,18 +21,18 @@ export default function NavbarMobile({
   const { socials } = useSocials();
   const { addModal, removeModal } = useModal();
   const [isContactDropdownOpen, setContactDropdownOpen] = useState(false);
+  const prevOpenRef = useRef(isMobileMenuOpen);
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      addModal();
-    } else {
-      removeModal();
-    }
-    return () => {
+    const prev = prevOpenRef.current;
+    if (prev !== isMobileMenuOpen) {
       if (isMobileMenuOpen) {
+        addModal();
+      } else {
         removeModal();
       }
-    };
+    }
+    prevOpenRef.current = isMobileMenuOpen;
   }, [isMobileMenuOpen, addModal, removeModal]);
 
   useEffect(() => {
