@@ -42,7 +42,7 @@ const initialProjects: readonly Project[] = [
       Skill.Storyblok,
       Skill.Stripe,
     ],
-    link: "https://mojii.net/",
+    link: "https://www.lespelotines.com/",
   },
   {
     title: "ICD Code Lookup",
