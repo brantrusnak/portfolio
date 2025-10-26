@@ -65,6 +65,14 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
     updateUnderlinePosition();
   }, [updateUnderlinePosition, locale]);
 
+  // Initial positioning with small delay to ensure DOM is ready
+  useEffect(() => {
+    if (hasMounted) {
+      const timer = setTimeout(() => updateUnderlinePosition());
+      return () => clearTimeout(timer);
+    }
+  }, [hasMounted, updateUnderlinePosition]);
+
   return (
     <nav className="flex justify-between items-center p-6 backdrop-blur-md border-b bg-card sticky top-0 z-50">
       <span
