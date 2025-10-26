@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef, useCallback } from "react";
-import { FaChevronDown } from "react-icons/fa6";
-import { Button, Dropdown } from "@/components/ui";
+import { useState, useEffect, useRef, useCallback, useContext } from "react";
+import { Button } from "@/components/ui";
 import { SECTION_ID, sections } from "@/components/Navigation/Navbar";
 import ThemeSwitch from "@/components/Navigation/ThemeSwitch";
-import { useSocials } from "@/context/SocialsContext";
+import LocaleDropdown from "./LocaleDropdown";
+import { useTranslations, useLocale } from "next-intl";
+import ContactDropdown from "./ContactDropdown";
+import { NavbarContext } from "./NavbarContext";
 
 interface NavbarDesktopProps {
   activeSection: SECTION_ID;
@@ -14,7 +16,6 @@ interface NavbarDesktopProps {
 
 export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
   const [hoveredSection, setHoveredSection] = useState<SECTION_ID | null>(null);
-  const { socials } = useSocials();
   const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 });
   const [underlineReady, setUnderlineReady] = useState(false);
   const linkRefs = useRef<HTMLSpanElement[]>([]);
@@ -22,12 +23,12 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
   const [hasMounted, setHasMounted] = useState(false);
   const [isResizing, setIsResizing] = useState(false);
   const resizeTimer = useRef<NodeJS.Timeout | null>(null);
-  const [isContactDropdownOpen, setContactDropdownOpen] = useState(false);
+  const { isContactDropdownOpen } = useContext(NavbarContext);
+  const tNav = useTranslations("Nav");
+  const locale = useLocale();
 
   const updateUnderlinePosition = useCallback(() => {
-    const sectionId = isContactDropdownOpen
-      ? SECTION_ID.CONTACT
-      : hoveredSection || activeSection;
+    const sectionId = isContactDropdownOpen ? SECTION_ID.CONTACT : hoveredSection || activeSection;
     const idx = sections.findIndex((s) => s.id === sectionId);
     const el = linkRefs.current[idx];
     const container = containerRef.current;
@@ -58,18 +59,14 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
       window.removeEventListener("resize", handleResize);
       if (resizeTimer.current) clearTimeout(resizeTimer.current);
     };
-  }, [hoveredSection, updateUnderlinePosition, activeSection]);
+  }, [updateUnderlinePosition]);
 
   useEffect(() => {
     updateUnderlinePosition();
-  }, [updateUnderlinePosition]);
-
-  const handleContactItemClick = () => {
-    setContactDropdownOpen(false);
-  };
+  }, [updateUnderlinePosition, locale]);
 
   return (
-    <nav className="flex justify-between items-center p-6 backdrop-blur-md border-b border-navbar-border bg-navbar sticky top-0 z-50">
+    <nav className="flex justify-between items-center p-6 backdrop-blur-md border-b bg-card sticky top-0 z-50">
       <span
         ref={(el) => {
           if (el) linkRefs.current[0] = el;
@@ -87,7 +84,7 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
         ref={containerRef}
         className="relative flex items-center gap-4 text-sm"
       >
-        {sections.slice(1).map(({ id, label, isDropdown }, idx) => (
+        {sections.slice(1).map(({ id }, idx) => (
           <span
             key={id}
             ref={(el) => {
@@ -97,50 +94,18 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
             onMouseLeave={() => setHoveredSection(null)}
             className="relative"
           >
-            {isDropdown ? (
-              <Dropdown
-                isOpen={isContactDropdownOpen}
-                setIsOpen={setContactDropdownOpen}
-              >
-                <Dropdown.Trigger>
-                  <Button
-                    size="sm"
-                    ariaLabel={label}
-                    rightIcon={<FaChevronDown />}
-                  >
-                    {label}
-                  </Button>
-                </Dropdown.Trigger>
-                <Dropdown.Content className="w-55">
-                  {socials.map((item) => (
-                    <Dropdown.Item key={item.id} className="w-full">
-                      <Link
-                        href={item.url}
-                        onClick={handleContactItemClick}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center px-4 py-2 gap-2"
-                      >
-                        {item.icon && (
-                          <span className="size-[14px] text-[14px]">
-                            {item.icon}
-                          </span>
-                        )}
-                        {item.label}
-                      </Link>
-                    </Dropdown.Item>
-                  ))}
-                </Dropdown.Content>
-              </Dropdown>
+            {id === SECTION_ID.CONTACT ? (
+              <ContactDropdown />
             ) : (
               <Link href={`#${id}`}>
-                <Button size="sm" variant="ghost" ariaLabel={label}>
-                  {label}
+                <Button size="sm" variant="ghost" aria-label={tNav(id)}>
+                  {tNav(id)}
                 </Button>
               </Link>
             )}
           </span>
         ))}
+        <LocaleDropdown />
         <ThemeSwitch />
         {underlineReady && (
           <span

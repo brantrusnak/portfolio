@@ -1,0 +1,142 @@
+{
+    "actions": {
+        "visit": "Visit",
+        "close": "Close"
+    },
+    "Nav": {
+        "skills": "Skills",
+        "work": "Work",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "Socials": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "email": "Email",
+        "resume": "Résumé"
+    },
+    "About": {
+        "Hero": {
+            "heading": "Hello",
+            "subheading": "I'm Brant Rusnak.",
+            "tagline": "I craft high-performance, user-focused web interfaces with polish and precision."
+        },
+        "Bio": {
+            "paragraphs": [
+                "I'm a self-taught senior frontend/full-stack engineer with 9+ years of experience helping teams bring ideas to life through fast, intuitive, and accessible web apps. Across startups, agencies, and product teams, I've worn a lot of hats and always found joy in making complex things feel effortless.",
+                "Whether I'm deep in component architecture, nudging a UI into place, or tuning performance to make an app feel right, I care about the details. Great software shouldn't just work. It should feel thoughtfully crafted, clear, scalable, and built with the user in mind."
+            ]
+        }
+    },
+    "Skills": {
+        "heading": "Skills",
+        "subheading": "What I've used to bring ideas to life.",
+        "filters": {
+            "featured": "Featured",
+            "languages": "Languages",
+            "frontend": "Frontend",
+            "backend": "Backend & APIs",
+            "devops": "DevOps & Cloud",
+            "tooling": "Tooling & Testing",
+            "ides": "IDEs & Collaboration",
+            "cms": "CMS & Commerce"
+        }
+    },
+    "Work": {
+        "heading": "Work",
+        "subheading": "Work that's shaped how I approach engineering and product.",
+        "history": {
+            "Lionhart Imaging": {
+                "position": "Software Engineer",
+                "type": "Contract",
+                "expandedContent": [
+                    "Led the architecture and launch of a full-stack radiology reporting platform using Angular, NgRx, Python, and MySQL, hosted via AWS and Netlify with deployment pipelines-scaling from a single-user prototype to a foundation capable of supporting multiple teams and clinics.",
+                    "Increased reporting efficiency by 85% for a small clinical team processing 2,400+ reports over 3 months-designing intuitive workflows, reducing cognitive load, and streamlining PACS-driven interactions.",
+                    "Improved transcription clarity and editorial confidence, reducing reporting errors by integrating Deepgram for speech-to-text and ChatGPT for real-time quality assurance.",
+                    "Collaborated directly with radiologists to design modular report structuring tools, enabling flexible workflows and reducing editing friction - resulting in faster turnaround times and improved usability.",
+                    "Authored technical documentation including backend API specifications, database diagrams, and annotated Angular services to support integration, maintenance, and decoupling."
+                ]
+            },
+            "Omadeus": {
+                "position": "Senior Frontend Engineer, Team Lead",
+                "type": "Full Time",
+                "expandedContent": [
+                    "Reduced login time by 63% for a ~100-user platform by refactoring store methods and optimizing state updates and UI rendering, accelerating product development through immediate feedback and tight iteration loops.",
+                    "Improved UI responsiveness by over 70% and cut Largest Contentful Paint (LCP) from 6s to 0.5s by offloading compute-heavy state-saving operations to a Web Worker thread, eliminating main thread blocking and enabling smooth animations and near instant UI rendering from cached data.",
+                    "Drove frontend roadmap and mentored junior developers, leading a 5+ person team and supporting two additional teams.",
+                    "Managed sprint planning and onboarding across a growing team, improving delivery consistency and reducing new engineer ramp-up time through structured coordination and cross-functional alignment.",
+                    "Shaped product direction through engineering-led feedback, translating daily usage pain points into prioritized feature requests and quick-turnaround fixes that improved user experience and internal workflow efficiency."
+                ]
+            },
+            "LIO": {
+                "position": "Mid Software Engineer, Consultant",
+                "type": "Full Time",
+                "expandedContent": [
+                    "Architected SEO-optimized React and Next.js applications with server-side rendering (SSR), improving campaign load performance and increasing search engine visibility for clients.",
+                    "Implemented CI/CD pipelines with GitHub Actions, cutting deployment time by 75% and enabling safer, more frequent releases with improved developer confidence.",
+                    "Led client-facing project scoping and technical strategy, ensuring dev alignment with business goals and improving delivery outcomes across campaign implementations."
+                ]
+            },
+            "theLandscape": {
+                "position": "Software Engineer",
+                "type": "Full Time",
+                "expandedContent": [
+                    "Developed and maintained a reusable Angular component library adopted across 5+ internal applications, standardizing UI patterns and reducing frontend defects and implementation time.",
+                    "Migrated legacy AngularJS apps to modern Angular, improving performance, security, and maintainability-cutting technical debt and reducing bug reports by 30%.",
+                    "Contributed to full-stack feature development using Angular, Java, MySQL, and MongoDB-bridging frontend and backend tasks while collaborating with designers to ensure responsive, design-aligned UIs and accelerating delivery of cross-functional features."
+                ]
+            }
+        }
+    },
+    "Projects": {
+        "heading": "Projects",
+        "subheading": "A few highlights from the build log.",
+        "projects": {
+            "portfolio": {
+                "description": "Personal site to showcase my work and frontend thinking, built with Next.js and Tailwind for fast load times, clean design, and a smooth UX."
+            },
+            "les_pelotines": {
+                "description": "Ecommerce site for a countryside crochet business in France, built with Next.js, Storyblok, and Stripe to enable flexible content and seamless checkout."
+            },
+            "icd_code_lookup": {
+                "description": "Search tool for ICD-10 codes, built with Angular Universal for SEO and SSR. Focused on accessibility and fast lookup for clinicians."
+            },
+            "ie": {
+                "description": "Ecommerce site for a veteran-owned CBD company, migrated from Shopify to BigCommerce to support custom storefront features and full seed-to-sale transparency."
+            },
+            "rjk": {
+                "description": "Redesigned the website for a business leadership coach using Grav with PHP, Twig, and Webpack to deliver a fast, modern site with clean structure and focused messaging."
+            },
+            "topics": {
+                "description": "Content analysis tool that scored and optimized writing in real time using keyword density and SEO signals. Built with Angular and Java for fast feedback and structured evaluation."
+            },
+            "pong": {
+                "description": "Classic arcade game built with HTML, CSS, and JavaScript, featuring responsive design and smooth animations for a nostalgic gaming experience."
+            },
+            "jaTracker": {
+                "description": "Classic Tic Tac Toe game built with HTML, CSS, and JavaScript, featuring responsive design and smooth animations for a nostalgic gaming experience."
+            },
+            "portfolio_old": {
+                "description": "Retired portfolio built with HTML, SCSS, Mustache, and TypeScript, deployed with Apache on DigitalOcean."
+            },
+            "tlkr": {
+                "description": "Prototype for a social media platform, built with Angular, Node.js, and MySQL using Passport.js for authentication. Focused on user posts, sessions, and full-stack integration."
+            },
+            "keyframe_generator": {
+                "description": "Early utility tool built with HTML, CSS, and JavaScript to help generate CSS keyframes with calculated pauses and delays by converting timing into keyframe percentages."
+            }
+        }
+    },
+    "Footer": {
+        "madeWith": "Made with",
+        "love": "Love",
+        "by": "by Brant Rusnak"
+    },
+    "NotFound": {
+        "heading": "404",
+        "subheading": "Page not found",
+        "description": "The page you are looking for does not exist.",
+        "button": "Go Back",
+        "label": "Go to homepage"
+    }
+}

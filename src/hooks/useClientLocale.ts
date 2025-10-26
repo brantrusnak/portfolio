@@ -1,20 +1,12 @@
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 
 export function useClientLocale(defaultLocale = "en-US") {
-  const [locale, setLocale] = useState(defaultLocale);
-  const mounted = useRef(true);
-
-  useEffect(() => {
-    if (typeof navigator !== "undefined") {
-      const detectedLocale = navigator.languages?.[0] || navigator.language;
-      if (detectedLocale && mounted.current) {
-        setLocale(detectedLocale);
-      }
+  const [locale] = useState(() => {
+    if (typeof window !== "undefined") {
+      return navigator.languages?.[0] || navigator.language || defaultLocale;
     }
-    return () => {
-      mounted.current = false;
-    };
-  }, []);
+    return defaultLocale;
+  });
 
   return locale;
 }

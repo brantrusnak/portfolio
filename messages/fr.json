@@ -1,0 +1,142 @@
+{
+    "actions": {
+        "visit": "Visiter",
+        "close": "Fermer"
+    },
+    "Nav": {
+        "skills": "Compétences",
+        "work": "Travaux",
+        "projects": "Projets",
+        "contact": "Contact"
+    },
+    "Socials": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "email": "Email",
+        "resume": "CV"
+    },
+    "About": {
+        "Hero": {
+            "heading": "Bonjour",
+            "subheading": "Je suis Brant Rusnak.",
+            "tagline": "Je conçois des interfaces web performantes et centrées sur l’utilisateur, avec soin et précision."
+        },
+        "Bio": {
+            "paragraphs": [
+                "Je suis un ingénieur frontend/full-stack senior autodidacte avec plus de 9 ans d’expérience à aider des équipes à donner vie à leurs idées grâce à des applications web rapides, intuitives et accessibles. Dans des startups, des agences et des équipes produit, j’ai porté de nombreux chapeaux et j’ai toujours trouvé du plaisir à rendre les choses complexes simples et fluides.",
+                "Que je sois plongé dans l’architecture de composants, en train d’ajuster une interface ou d’optimiser les performances pour que l’application soit fluide, je m’attarde aux détails. Un bon logiciel ne devrait pas seulement fonctionner. Il devrait être pensé avec soin, clair, évolutif et conçu avec l’utilisateur en tête."
+            ]
+        }
+    },
+    "Skills": {
+        "heading": "Compétences",
+        "subheading": "Ce que j’ai utilisé pour donner vie aux idées.",
+        "filters": {
+            "featured": "Mises en avant",
+            "languages": "Langages",
+            "frontend": "Frontend",
+            "backend": "Backend & APIs",
+            "devops": "DevOps & Cloud",
+            "tooling": "Outils & Tests",
+            "ides": "IDEs & Collaboration",
+            "cms": "CMS & Commerce"
+        }
+    },
+    "Work": {
+        "heading": "Travaux",
+        "subheading": "Des expériences qui ont façonné ma façon d’aborder l’ingénierie et le produit.",
+        "history": {
+            "Lionhart Imaging": {
+                "position": "Ingénieur Logiciel",
+                "type": "Contrat",
+                "expandedContent": [
+                    "Dirigé l’architecture et le lancement d’une plateforme de reporting radiologique full-stack utilisant Angular, NgRx, Python et MySQL, hébergée sur AWS et Netlify avec pipelines de déploiement – passant d’un prototype monoposte à une base capable de supporter plusieurs équipes et cliniques.",
+                    "Augmenté l’efficacité des rapports de 85 % pour une petite équipe clinique traitant plus de 2 400 rapports en 3 mois – en concevant des flux de travail intuitifs, réduisant la charge cognitive et rationalisant les interactions pilotées par PACS.",
+                    "Amélioré la clarté de la transcription et la confiance éditoriale, réduisant les erreurs de rapport en intégrant Deepgram pour la reconnaissance vocale et ChatGPT pour l’assurance qualité en temps réel.",
+                    "Collaboré directement avec des radiologues pour concevoir des outils modulaires de structuration des rapports, permettant des flux de travail flexibles et réduisant les frictions d’édition – aboutissant à des délais plus courts et une meilleure utilisabilité.",
+                    "Rédigé de la documentation technique incluant spécifications API backend, diagrammes de base de données et services Angular annotés pour soutenir l’intégration, la maintenance et le découplage."
+                ]
+            },
+            "Omadeus": {
+                "position": "Ingénieur Frontend Senior, Chef d’Équipe",
+                "type": "Temps plein",
+                "expandedContent": [
+                    "Réduit le temps de connexion de 63 % pour une plateforme d’environ 100 utilisateurs en refactorisant les méthodes du store et en optimisant les mises à jour d’état et le rendu UI, accélérant le développement produit grâce à des boucles de retour immédiates et d’itération rapide.",
+                    "Amélioré la réactivité de l’UI de plus de 70 % et réduit le Largest Contentful Paint (LCP) de 6s à 0,5s en déchargeant les opérations lourdes de sauvegarde d’état vers un thread Web Worker, éliminant les blocages du thread principal et permettant des animations fluides et un rendu quasi instantané depuis le cache.",
+                    "Piloté la feuille de route frontend et mentoré des développeurs juniors, dirigeant une équipe de plus de 5 personnes et soutenant deux autres équipes.",
+                    "Géré la planification des sprints et l’onboarding d’une équipe en croissance, améliorant la cohérence de livraison et réduisant le temps d’adaptation des nouveaux ingénieurs grâce à une coordination structurée et un alignement interfonctionnel.",
+                    "Influencé la direction produit par un retour orienté ingénierie, traduisant les points de douleur d’utilisation quotidienne en demandes de fonctionnalités prioritaires et correctifs rapides qui ont amélioré l’expérience utilisateur et l’efficacité des flux internes."
+                ]
+            },
+            "LIO": {
+                "position": "Ingénieur Logiciel Intermédiaire, Consultant",
+                "type": "Temps plein",
+                "expandedContent": [
+                    "Conçu des applications React et Next.js optimisées SEO avec rendu côté serveur (SSR), améliorant la performance de chargement des campagnes et augmentant la visibilité sur les moteurs de recherche pour les clients.",
+                    "Mis en place des pipelines CI/CD avec GitHub Actions, réduisant le temps de déploiement de 75 % et permettant des mises en production plus fréquentes et plus sûres avec une meilleure confiance des développeurs.",
+                    "Dirigé la définition de projet et la stratégie technique côté client, assurant l’alignement du développement avec les objectifs business et améliorant les résultats de livraison à travers les implémentations de campagne."
+                ]
+            },
+            "theLandscape": {
+                "position": "Ingénieur Logiciel",
+                "type": "Temps plein",
+                "expandedContent": [
+                    "Développé et maintenu une bibliothèque de composants Angular réutilisables adoptée dans plus de 5 applications internes, standardisant les modèles UI et réduisant les défauts frontend ainsi que le temps d’implémentation.",
+                    "Migré des applications AngularJS héritées vers Angular moderne, améliorant performance, sécurité et maintenabilité – réduisant la dette technique et les rapports de bugs de 30 %. ",
+                    "Contribué au développement full-stack de fonctionnalités en utilisant Angular, Java, MySQL et MongoDB – reliant tâches frontend et backend tout en collaborant avec des designers pour garantir des interfaces responsives alignées au design, accélérant la livraison de fonctionnalités transverses."
+                ]
+            }
+        }
+    },
+    "Projects": {
+        "heading": "Projets",
+        "subheading": "Quelques points forts du journal de création.",
+        "projects": {
+            "portfolio": {
+                "description": "Site personnel pour présenter mon travail et ma réflexion frontend, construit avec Next.js et Tailwind pour des temps de chargement rapides, un design épuré et une expérience fluide."
+            },
+            "les_pelotines": {
+                "description": "Site e-commerce pour une entreprise de crochet à la campagne en France, construit avec Next.js, Storyblok et Stripe pour offrir une gestion flexible du contenu et un paiement fluide."
+            },
+            "icd_code_lookup": {
+                "description": "Outil de recherche de codes CIM-10, construit avec Angular Universal pour le SEO et le SSR. Conçu pour l’accessibilité et la recherche rapide pour les cliniciens."
+            },
+            "ie": {
+                "description": "Site e-commerce pour une entreprise de CBD détenue par des vétérans, migré de Shopify vers BigCommerce pour supporter des fonctionnalités personnalisées et une transparence complète du processus de production."
+            },
+            "rjk": {
+                "description": "Refonte du site web d’un coach en leadership d’entreprise utilisant Grav avec PHP, Twig et Webpack pour livrer un site rapide, moderne, avec une structure claire et un message ciblé."
+            },
+            "topics": {
+                "description": "Outil d’analyse de contenu qui notait et optimisait l’écriture en temps réel grâce à la densité de mots-clés et aux signaux SEO. Construit avec Angular et Java pour un retour rapide et une évaluation structurée."
+            },
+            "pong": {
+                "description": "Jeu d’arcade classique construit avec HTML, CSS et JavaScript, proposant un design responsive et des animations fluides pour une expérience nostalgique."
+            },
+            "jaTracker": {
+                "description": "Jeu de morpion classique construit avec HTML, CSS et JavaScript, proposant un design responsive et des animations fluides pour une expérience nostalgique."
+            },
+            "portfolio_old": {
+                "description": "Ancien portfolio construit avec HTML, SCSS, Mustache et TypeScript, déployé avec Apache sur DigitalOcean."
+            },
+            "tlkr": {
+                "description": "Prototype pour une plateforme de médias sociaux, construit avec Angular, Node.js et MySQL en utilisant Passport.js pour l’authentification. Centré sur les publications utilisateurs, les sessions et l’intégration full-stack."
+            },
+            "keyframe_generator": {
+                "description": "Outil utilitaire précoce construit avec HTML, CSS et JavaScript pour aider à générer des keyframes CSS avec pauses et délais calculés en convertissant le timing en pourcentages de keyframes."
+            }
+        }
+    },
+    "Footer": {
+        "madeWith": "Fait avec",
+        "love": "Amour",
+        "by": "par Brant Rusnak"
+    },
+    "NotFound": {
+        "heading": "404",
+        "subheading": "Page non trouvée",
+        "description": "La page que vous cherchez n’existe pas.",
+        "button": "Retour",
+        "label": "Aller à la page d’accueil"
+    }
+}

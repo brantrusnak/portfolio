@@ -7,7 +7,7 @@ interface CardFooterProps {
 
 export function CardFooter({ children, className = "" }: CardFooterProps) {
   return (
-    <div className={`p-6 font-semibold text-white text-lg ${className}`}>
+    <div className={`p-6 font-semibold text-lg ${className}`}>
       {children}
     </div>
   );

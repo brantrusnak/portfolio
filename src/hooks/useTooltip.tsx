@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   useFloating,
   autoUpdate,
@@ -11,7 +11,7 @@ import {
   useRole,
   useInteractions,
   arrow,
-  useTransitionStyles,
+  useTransitionStyles
 } from "@floating-ui/react";
 import type { Placement } from "@floating-ui/react";
 
@@ -32,8 +32,8 @@ export function useTooltip({
   delay = 200,
   showArrow = true,
 }: TooltipOptions = {}) {
-  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(initialOpen);
-  const arrowRef = React.useRef(null);
+  const [uncontrolledOpen, setUncontrolledOpen] = useState(initialOpen);
+  const arrowRef = useRef(null);
 
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
@@ -71,7 +71,7 @@ export function useTooltip({
 
   const interactions = useInteractions([hover, focus, dismiss, role]);
 
-  return React.useMemo(
+  return useMemo(
     () => ({
       open,
       setOpen,

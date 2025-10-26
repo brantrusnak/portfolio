@@ -1,10 +1,7 @@
-import { MotionProvider } from "@/context/MotionProvider";
-import { NotFound } from "@/app/sections";
+import { NotFound } from "@/app/features";
 
 export default function NotFoundPage() {
   return (
-    <MotionProvider>
-      <NotFound />
-    </MotionProvider>
+    <NotFound />
   );
 }

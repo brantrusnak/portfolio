@@ -8,7 +8,7 @@ interface CardHeaderProps {
 export function CardHeader({ children, className = "" }: CardHeaderProps) {
   if (!children) return null;
   return (
-    <div className={`p-6 pb-0 font-semibold text-white text-lg ${className}`}>
+    <div className={`p-6 pb-0 font-semibold text-lg ${className}`}>
       {children}
     </div>
   );

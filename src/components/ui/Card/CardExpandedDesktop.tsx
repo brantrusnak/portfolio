@@ -8,6 +8,7 @@ import React, {
   useEffect,
   useState,
   useCallback,
+  useRef,
 } from "react";
 import { GradientBorder } from "@/components/ui";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
@@ -16,6 +17,7 @@ import { CardContent } from "./CardContent";
 import { CardExpandedContent } from "./CardExpandedContent";
 import { CardFooter } from "./CardFooter";
 import { FaXmark } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 interface CardExpandedDesktopProps {
   children?: ReactNode;
@@ -40,39 +42,32 @@ export function CardExpandedDesktop({
   const prefersReducedMotion = useReducedMotion();
   const [isAnimationComplete, setIsAnimationComplete] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
-  const [showCloseButton, setShowCloseButton] = useState(false);
-  const [showOverlay, setShowOverlay] = useState(false);
-  const [cardZIndex, setCardZIndex] = useState(40);
+  const showCloseButton = isAnimationComplete && isExpanded && !isExiting;
+  const showOverlay = isAnimationComplete && isExpanded && !isExiting;
+  const cardZIndex = (isAnimationComplete && isExpanded && !isExiting) ? 70 : 40;
+  const t = useTranslations("actions");
 
   const close = useCallback(() => {
     if (!isExpanded) return;
-    setShowCloseButton(false);
-    setShowOverlay(false);
-    setCardZIndex(40);
     setIsExiting(true);
     onExitingChangeAction(true);
     onCloseAction();
     setIsAnimationComplete(false);
   }, [isExpanded, onCloseAction, onExitingChangeAction]);
 
-  useEffect(() => {
-    if (isAnimationComplete && isExpanded && !isExiting) {
-      setShowCloseButton(true);
-      setCardZIndex(70);
-      setShowOverlay(true);
-    }
-  }, [isAnimationComplete, isExpanded, isExiting]);
+  const closeRef = useRef(close);
+  closeRef.current = close;
 
   useEffect(() => {
     if (!isExpanded) return;
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        close();
+        closeRef.current();
       }
     };
     window.addEventListener("keydown", handleEsc);
     return () => window.removeEventListener("keydown", handleEsc);
-  }, [isExpanded, close]);
+  }, [isExpanded]);
 
   if (!children) return null;
 
@@ -98,7 +93,6 @@ export function CardExpandedDesktop({
       onExitComplete={() => {
         setIsExiting(false);
         setIsAnimationComplete(false);
-        setShowOverlay(false);
         onExitingChangeAction(false);
       }}
     >
@@ -123,12 +117,12 @@ export function CardExpandedDesktop({
               prefersReducedMotion
                 ? { top: "50%", left: "50%", x: "-50%", y: "-50%", opacity: 0 }
                 : {
-                    top: cardPosition.top,
-                    left: cardPosition.left,
-                    width: cardPosition.width,
-                    height: cardPosition.height,
-                    opacity: 1,
-                  }
+                  top: cardPosition.top,
+                  left: cardPosition.left,
+                  width: cardPosition.width,
+                  height: cardPosition.height,
+                  opacity: 1,
+                }
             }
             animate={{
               top: "50%",
@@ -143,13 +137,13 @@ export function CardExpandedDesktop({
               prefersReducedMotion
                 ? { opacity: 0 }
                 : {
-                    top: cardPosition.top,
-                    left: cardPosition.left,
-                    x: 0,
-                    y: 0,
-                    width: cardPosition.width,
-                    height: cardPosition.height,
-                  }
+                  top: cardPosition.top,
+                  left: cardPosition.left,
+                  x: 0,
+                  y: 0,
+                  width: cardPosition.width,
+                  height: cardPosition.height,
+                }
             }
             transition={{ duration: 0.3 }}
             onAnimationComplete={() => setIsAnimationComplete(true)}
@@ -169,13 +163,13 @@ export function CardExpandedDesktop({
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute text-2xl top-4 right-4 text-gray-500 hover:text-gray-200 transition-colors cursor-pointer flex items-center gap-1"
+                    className="absolute text-2xl top-4 right-4 text-muted-foreground/80 hover:text-muted-foreground transition-colors cursor-pointer flex items-center gap-1"
                     onClick={close}
                     role="button"
-                    aria-label="Close"
+                    aria-label={t("close")}
                   >
                     <FaXmark />
-                    <span className="text-sm">Close</span>
+                    <span className="text-sm">{t("close")}</span>
                   </motion.div>
                 )}
                 {header}

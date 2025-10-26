@@ -1,11 +1,11 @@
 export enum SkillCategory {
-  Languages = "Languages",
-  Frontend = "Frontend",
-  Backend = "Backend & APIs",
-  DevOpsCloud = "DevOps & Cloud",
-  ToolingTesting = "Tooling & Testing",
-  Collaboration = "IDEs & Collaboration",
-  CmsCommerce = "CMS & Commerce",
+  LANGUAGES = "languages",
+  FRONTEND = "frontend",
+  BACKEND = "backend",
+  DEVOPS = "devops",
+  TOOLING = "tooling",
+  IDES = "ides",
+  CMS = "cms",
 }
 
 export enum Skill {
@@ -111,3 +111,9 @@ export enum Skill {
   Wordpress = "Wordpress",
   WooCommerce = "WooCommerce",
 }
+
+export type SkillItem = {
+  title: Skill;
+  image: string;
+  featured?: boolean;
+};

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import NavbarDesktop from "@/components/Navigation/NavbarDesktop";
 import NavbarMobile from "@/components/Navigation/NavbarMobile";
+import { NavbarProvider } from "./NavbarContext";
 
 export enum SECTION_ID {
   ABOUT = "about",
@@ -24,7 +25,6 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState<SECTION_ID>(
     SECTION_ID.ABOUT,
   );
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     let ticking = false;
@@ -56,16 +56,15 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50">
-      <div className="hidden lg:block">
-        <NavbarDesktop activeSection={activeSection} />
+    <NavbarProvider>
+      <div className="sticky top-0 z-50">
+        <div className="hidden md:block">
+          <NavbarDesktop activeSection={activeSection} />
+        </div>
+        <div className="md:hidden">
+          <NavbarMobile />
+        </div>
       </div>
-      <div className="lg:hidden">
-        <NavbarMobile
-          isMobileMenuOpen={isMobileMenuOpen}
-          setIsMobileMenuOpenAction={setIsMobileMenuOpen}
-        />
-      </div>
-    </div>
+    </NavbarProvider>
   );
 }

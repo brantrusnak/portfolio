@@ -7,6 +7,7 @@ import { CardContent } from "./CardContent";
 import { CardExpandedContent } from "./CardExpandedContent";
 import { CardFooter } from "./CardFooter";
 import { FaXmark } from "react-icons/fa6";
+import { useTranslations } from "next-intl";
 
 interface CardExpandedMobileProps {
   children?: ReactNode;
@@ -21,6 +22,7 @@ export function CardExpandedMobile({
   onCloseAction,
   onExitingChangeAction,
 }: CardExpandedMobileProps) {
+  const t = useTranslations("actions");
   if (!children || !isExpanded) return null;
 
   const close = () => {
@@ -61,13 +63,13 @@ export function CardExpandedMobile({
       >
         <div className="relative flex flex-col bg-card border border-card-border shadow-lg rounded-md size-[100%] overflow-auto">
           <div
-            className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-200 transition-colors cursor-pointer flex items-center gap-1"
+            className="absolute top-4 right-4 text-2xl text-muted-foreground/80 hover:text-muted-foreground transition-colors cursor-pointer flex items-center gap-1"
             onClick={close}
             role="button"
-            aria-label="Close"
+            aria-label={t("close")}
           >
             <FaXmark />
-            <span className="text-sm">Close</span>
+            <span className="text-sm">{t("close")}</span>
           </div>
           {header}
           {content}

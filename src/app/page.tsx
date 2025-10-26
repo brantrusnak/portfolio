@@ -1,17 +1,17 @@
-import { About, Projects, Skills, Works } from "@/app/sections";
+import { About, Projects, Skills, Works } from "@/app/features";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navigation/Navbar";
-import { MotionProvider } from "@/context/MotionProvider";
+import { Fragment } from "react";
 
 export default function HomePage() {
   return (
-    <MotionProvider>
+    <Fragment>
       <Navbar />
       <About />
       <Skills />
       <Works />
       <Projects />
       <Footer />
-    </MotionProvider>
+    </Fragment>
   );
 }

@@ -72,37 +72,27 @@ const Card = forwardRef(function Card(
     height: 0,
   });
   const { addModal, removeModal } = useModal();
-  const prevExpandedRef = useRef(isExpanded);
-  const didIncrementModal = useRef(false);
-  const prevExitingRef = useRef(isExiting);
+  const modalAddedRef = useRef(false);
 
   useEffect(() => {
-    const prev = prevExpandedRef.current;
-    if (prev !== isExpanded && isExpanded) {
-      if (!didIncrementModal.current) {
-        addModal();
-        didIncrementModal.current = true;
-      }
+    if (isExpanded && !modalAddedRef.current) {
+      addModal();
+      modalAddedRef.current = true;
     }
-    prevExpandedRef.current = isExpanded;
   }, [isExpanded, addModal]);
 
   useEffect(() => {
-    const prev = prevExitingRef.current;
-    if (prev === true && isExiting === false) {
-      if (didIncrementModal.current) {
-        removeModal();
-        didIncrementModal.current = false;
-      }
+    if (!isExiting && modalAddedRef.current) {
+      removeModal();
+      modalAddedRef.current = false;
     }
-    prevExitingRef.current = isExiting;
   }, [isExiting, removeModal]);
 
   useEffect(() => {
     return () => {
-      if (didIncrementModal.current) {
+      if (modalAddedRef.current) {
         removeModal();
-        didIncrementModal.current = false;
+        modalAddedRef.current = false;
       }
     };
   }, [removeModal]);
