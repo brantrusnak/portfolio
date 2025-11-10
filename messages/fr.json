@@ -23,8 +23,7 @@
         },
         "Bio": {
             "paragraphs": [
-                "Je suis un ingénieur frontend/full-stack senior autodidacte avec plus de 9 ans d’expérience à aider des équipes à donner vie à leurs idées grâce à des applications web rapides, intuitives et accessibles. Dans des startups, des agences et des équipes produit, j’ai porté de nombreux chapeaux et j’ai toujours trouvé du plaisir à rendre les choses complexes simples et fluides.",
-                "Que je sois plongé dans l’architecture de composants, en train d’ajuster une interface ou d’optimiser les performances pour que l’application soit fluide, je m’attarde aux détails. Un bon logiciel ne devrait pas seulement fonctionner. Il devrait être pensé avec soin, clair, évolutif et conçu avec l’utilisateur en tête."
+                "Ingénieur Logiciel Senior avec plus de 9 ans d'expérience à diriger des équipes frontend et à concevoir des systèmes évolutifs dans les domaines SaaS et de la santé. Expert en frameworks JavaScript modernes, optimisation des performances et livraison de bout en bout de la conception au déploiement. Bilan prouvé d'accélération de la vélocité des releases, d'amélioration de la fiabilité et de guidage des équipes à travers la modernisation de l'architecture et le mentorat."
             ]
         }
     },
@@ -50,40 +49,40 @@
                 "position": "Ingénieur Logiciel",
                 "type": "Contrat",
                 "expandedContent": [
-                    "Dirigé l’architecture et le lancement d’une plateforme de reporting radiologique full-stack utilisant Angular, NgRx, Python et MySQL, hébergée sur AWS et Netlify avec pipelines de déploiement – passant d’un prototype monoposte à une base capable de supporter plusieurs équipes et cliniques.",
-                    "Augmenté l’efficacité des rapports de 85 % pour une petite équipe clinique traitant plus de 2 400 rapports en 3 mois – en concevant des flux de travail intuitifs, réduisant la charge cognitive et rationalisant les interactions pilotées par PACS.",
-                    "Amélioré la clarté de la transcription et la confiance éditoriale, réduisant les erreurs de rapport en intégrant Deepgram pour la reconnaissance vocale et ChatGPT pour l’assurance qualité en temps réel.",
-                    "Collaboré directement avec des radiologues pour concevoir des outils modulaires de structuration des rapports, permettant des flux de travail flexibles et réduisant les frictions d’édition – aboutissant à des délais plus courts et une meilleure utilisabilité.",
-                    "Rédigé de la documentation technique incluant spécifications API backend, diagrammes de base de données et services Angular annotés pour soutenir l’intégration, la maintenance et le découplage."
+                    "30 % de réduction du délai de traitement des rapports radiologiques via une plateforme de reporting gérant plus de 1 100 études mensuelles avec intégration PACS et flux de travail rationalisés.",
+                    "85 % d'augmentation du débit pour les radiologues grâce à une refonte des flux de travail et Deepgram pour la reconnaissance vocale avec contrôle qualité basé sur GPT.",
+                    "40 % de réduction de la charge administrative en unifiant trois systèmes de planification en un seul outil multiplateforme équilibrant la couverture des sites.",
+                    "Garanti une planification clinique ininterrompue dans des environnements mobiles et à faible connectivité en concevant une PWA React + FastAPI avec mise en cache hors ligne et synchronisation.",
+                    "Temps d'arrêt quasi nul grâce à des déploiements multi-cloud automatisés sur Netlify, Vercel, GCP et AWS."
                 ]
             },
             "Omadeus": {
-                "position": "Ingénieur Frontend Senior, Chef d’Équipe",
+                "position": "Ingénieur Frontend Senior, Chef d'Équipe",
                 "type": "Temps plein",
                 "expandedContent": [
-                    "Réduit le temps de connexion de 63 % pour une plateforme d’environ 100 utilisateurs en refactorisant les méthodes du store et en optimisant les mises à jour d’état et le rendu UI, accélérant le développement produit grâce à des boucles de retour immédiates et d’itération rapide.",
-                    "Amélioré la réactivité de l’UI de plus de 70 % et réduit le Largest Contentful Paint (LCP) de 6s à 0,5s en déchargeant les opérations lourdes de sauvegarde d’état vers un thread Web Worker, éliminant les blocages du thread principal et permettant des animations fluides et un rendu quasi instantané depuis le cache.",
-                    "Piloté la feuille de route frontend et mentoré des développeurs juniors, dirigeant une équipe de plus de 5 personnes et soutenant deux autres équipes.",
-                    "Géré la planification des sprints et l’onboarding d’une équipe en croissance, améliorant la cohérence de livraison et réduisant le temps d’adaptation des nouveaux ingénieurs grâce à une coordination structurée et un alignement interfonctionnel.",
-                    "Influencé la direction produit par un retour orienté ingénierie, traduisant les points de douleur d’utilisation quotidienne en demandes de fonctionnalités prioritaires et correctifs rapides qui ont amélioré l’expérience utilisateur et l’efficacité des flux internes."
+                    "40 % d'augmentation de la vélocité de livraison en dirigeant une équipe frontend de 5 ingénieurs grâce à un mentorat structuré et des revues de code rigoureuses.",
+                    "91 % d'amélioration de la gestion des données (55–61s à 5s) grâce à une gestion d'état optimisée et une réactivité affinée.",
+                    "92 % d'amélioration du LCP (6s à 0,5s) en déchargeant les opérations IndexedDB et les calculs lourds.",
+                    "67 % de réduction des cycles de release (3 semaines à 1 semaine) en s'alignant avec les équipes produit et backend sur les priorités clients.",
+                    "60 % d'accélération de la livraison de fonctionnalités en concevant et implémentant une architecture frontend évolutive et modulaire."
                 ]
             },
             "LIO": {
-                "position": "Ingénieur Logiciel Intermédiaire, Consultant",
+                "position": "Ingénieur Logiciel / Consultant",
                 "type": "Temps plein",
                 "expandedContent": [
-                    "Conçu des applications React et Next.js optimisées SEO avec rendu côté serveur (SSR), améliorant la performance de chargement des campagnes et augmentant la visibilité sur les moteurs de recherche pour les clients.",
-                    "Mis en place des pipelines CI/CD avec GitHub Actions, réduisant le temps de déploiement de 75 % et permettant des mises en production plus fréquentes et plus sûres avec une meilleure confiance des développeurs.",
-                    "Dirigé la définition de projet et la stratégie technique côté client, assurant l’alignement du développement avec les objectifs business et améliorant les résultats de livraison à travers les implémentations de campagne."
+                    "Livré quatre projets de marketing et applications web haute performance en dirigeant la découverte client et la stratégie technique de la conception au lancement.",
+                    "220 % de croissance du trafic (900 à 2 900 mensuels) et 225 % d'augmentation des ventes en 3 mois en concevant une plateforme BigCommerce B2B/B2C optimisée pour les performances SEO et l'architecture produit.",
+                    "75 % de déploiements plus rapides grâce à des applications React/Next.js optimisées SEO avec SSR, optimisation des performances et CI/CD GitHub Actions."
                 ]
             },
             "theLandscape": {
-                "position": "Ingénieur Logiciel",
+                "position": "Ingénieur Logiciel Junior / Fondateur",
                 "type": "Temps plein",
                 "expandedContent": [
-                    "Développé et maintenu une bibliothèque de composants Angular réutilisables adoptée dans plus de 5 applications internes, standardisant les modèles UI et réduisant les défauts frontend ainsi que le temps d’implémentation.",
-                    "Migré des applications AngularJS héritées vers Angular moderne, améliorant performance, sécurité et maintenabilité – réduisant la dette technique et les rapports de bugs de 30 %. ",
-                    "Contribué au développement full-stack de fonctionnalités en utilisant Angular, Java, MySQL et MongoDB – reliant tâches frontend et backend tout en collaborant avec des designers pour garantir des interfaces responsives alignées au design, accélérant la livraison de fonctionnalités transverses."
+                    "30 % de rapports de bugs UI en moins en migrant le codebase d'AngularJS vers Angular, améliorant la sécurité, les performances et la maintenabilité.",
+                    "50 % de livraison de fonctionnalités plus rapide en développant une bibliothèque de composants Angular réutilisables adoptée par plus de 5 applications SaaS.",
+                    "Construit des fonctionnalités full-stack sur des services Java/Kotlin, MySQL, MongoDB et des APIs REST pour supporter les fonctionnalités principales."
                 ]
             }
         }

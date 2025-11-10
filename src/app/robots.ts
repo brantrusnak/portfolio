@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/resume.pdf'
+      disallow: '/Brant_Rusnak_Senior_Frontend_Engineer.pdf'
     },
     sitemap: 'https://www.brantrusnak.com/sitemap.xml',
   }

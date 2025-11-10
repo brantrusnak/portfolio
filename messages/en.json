@@ -23,8 +23,7 @@
         },
         "Bio": {
             "paragraphs": [
-                "I'm a self-taught senior frontend/full-stack engineer with 9+ years of experience helping teams bring ideas to life through fast, intuitive, and accessible web apps. Across startups, agencies, and product teams, I've worn a lot of hats and always found joy in making complex things feel effortless.",
-                "Whether I'm deep in component architecture, nudging a UI into place, or tuning performance to make an app feel right, I care about the details. Great software shouldn't just work. It should feel thoughtfully crafted, clear, scalable, and built with the user in mind."
+                "Senior Software Engineer with 9+ years of experience leading frontend teams and architecting scalable systems across SaaS and healthcare domains. Expert in modern JavaScript frameworks, performance optimization, and end-to-end delivery from design to deployment. Proven record of accelerating release velocity, improving reliability, and guiding teams through architecture modernization and mentorship."
             ]
         }
     },
@@ -50,40 +49,40 @@
                 "position": "Software Engineer",
                 "type": "Contract",
                 "expandedContent": [
-                    "Led the architecture and launch of a full-stack radiology reporting platform using Angular, NgRx, Python, and MySQL, hosted via AWS and Netlify with deployment pipelines-scaling from a single-user prototype to a foundation capable of supporting multiple teams and clinics.",
-                    "Increased reporting efficiency by 85% for a small clinical team processing 2,400+ reports over 3 months-designing intuitive workflows, reducing cognitive load, and streamlining PACS-driven interactions.",
-                    "Improved transcription clarity and editorial confidence, reducing reporting errors by integrating Deepgram for speech-to-text and ChatGPT for real-time quality assurance.",
-                    "Collaborated directly with radiologists to design modular report structuring tools, enabling flexible workflows and reducing editing friction - resulting in faster turnaround times and improved usability.",
-                    "Authored technical documentation including backend API specifications, database diagrams, and annotated Angular services to support integration, maintenance, and decoupling."
+                    "30% faster radiology report turnaround via a reporting platform handling 1,100+ monthly studies with PACS integration and streamlined workflows.",
+                    "85% throughput gain for radiologists through workflow redesign and Deepgram speech-to-text with GPT-based quality control.",
+                    "40% lower administrative overhead by unifying three scheduling systems into a single cross-platform tool balancing site coverage.",
+                    "Ensured uninterrupted clinical scheduling in mobile and low-connectivity environments by engineering a React + FastAPI PWA with offline caching and sync.",
+                    "Near-zero downtime achieved through automated multi-cloud deployments across Netlify, Vercel, GCP, and AWS."
                 ]
             },
             "Omadeus": {
                 "position": "Senior Frontend Engineer, Team Lead",
                 "type": "Full Time",
                 "expandedContent": [
-                    "Reduced login time by 63% for a ~100-user platform by refactoring store methods and optimizing state updates and UI rendering, accelerating product development through immediate feedback and tight iteration loops.",
-                    "Improved UI responsiveness by over 70% and cut Largest Contentful Paint (LCP) from 6s to 0.5s by offloading compute-heavy state-saving operations to a Web Worker thread, eliminating main thread blocking and enabling smooth animations and near instant UI rendering from cached data.",
-                    "Drove frontend roadmap and mentored junior developers, leading a 5+ person team and supporting two additional teams.",
-                    "Managed sprint planning and onboarding across a growing team, improving delivery consistency and reducing new engineer ramp-up time through structured coordination and cross-functional alignment.",
-                    "Shaped product direction through engineering-led feedback, translating daily usage pain points into prioritized feature requests and quick-turnaround fixes that improved user experience and internal workflow efficiency."
+                    "40% faster delivery velocity by leading a 5-engineer frontend team through structured mentorship and rigorous code reviews.",
+                    "91% faster data handling (55–61s to 5s) through optimized state management and refined reactivity.",
+                    "92% improved LCP (6s to 0.5s) by offloading IndexedDB operations and heavy computation.",
+                    "67% shorter release cycles (3 weeks to 1 week) by aligning with product and backend teams on customer priorities.",
+                    "60% faster feature delivery by designing and implementing a scalable, modular frontend architecture."
                 ]
             },
             "LIO": {
-                "position": "Mid Software Engineer, Consultant",
+                "position": "Software Engineer / Consultant",
                 "type": "Full Time",
                 "expandedContent": [
-                    "Architected SEO-optimized React and Next.js applications with server-side rendering (SSR), improving campaign load performance and increasing search engine visibility for clients.",
-                    "Implemented CI/CD pipelines with GitHub Actions, cutting deployment time by 75% and enabling safer, more frequent releases with improved developer confidence.",
-                    "Led client-facing project scoping and technical strategy, ensuring dev alignment with business goals and improving delivery outcomes across campaign implementations."
+                    "Delivered four high-performance marketing and web app projects by leading client discovery and technical strategy from concept to launch.",
+                    "220% traffic growth (900 to 2,900 monthly) and 225% sales increase in 3 months by architecting a B2B/B2C BigCommerce platform optimized for SEO performance and product architecture.",
+                    "75% faster deployments through SEO-optimized React/Next.js applications with SSR, performance tuning, and GitHub Actions CI/CD."
                 ]
             },
             "theLandscape": {
-                "position": "Software Engineer",
+                "position": "Junior Software Engineer / Founder",
                 "type": "Full Time",
                 "expandedContent": [
-                    "Developed and maintained a reusable Angular component library adopted across 5+ internal applications, standardizing UI patterns and reducing frontend defects and implementation time.",
-                    "Migrated legacy AngularJS apps to modern Angular, improving performance, security, and maintainability-cutting technical debt and reducing bug reports by 30%.",
-                    "Contributed to full-stack feature development using Angular, Java, MySQL, and MongoDB-bridging frontend and backend tasks while collaborating with designers to ensure responsive, design-aligned UIs and accelerating delivery of cross-functional features."
+                    "30% fewer UI bug reports by migrating the codebase from AngularJS to Angular, improving security, performance, and maintainability.",
+                    "50% faster feature delivery by developing a reusable Angular component library adopted by 5+ SaaS applications.",
+                    "Built full-stack features across Java/Kotlin services, MySQL, MongoDB, and REST APIs to support core functionality."
                 ]
             }
         }

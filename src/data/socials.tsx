@@ -19,7 +19,7 @@ export const socials: readonly Social[] = [
   },
   {
     id: "resume",
-    url: "/resume.pdf",
+    url: "/Brant_Rusnak_Senior_Frontend_Engineer.pdf",
     icon: <FaFilePdf />,
   },
 ];

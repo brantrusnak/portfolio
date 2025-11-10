@@ -20,6 +20,7 @@ export enum Skill {
   PHP = "PHP",
   ApacheThrift = "Apache Thrift",
   MySQL = "MySQL",
+  PostgreSQL = "PostgreSQL",
   MongoDB = "MongoDB",
   SCSS = "SCSS",
   Bulma = "Bulma",
