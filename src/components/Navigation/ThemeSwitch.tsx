@@ -3,16 +3,18 @@
 import { Button } from "@/components/ui";
 import { FaMoon, FaSun } from "react-icons/fa6";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import usePlatform, { PLATFORM } from "@/hooks/usePlatform";
 
 export default function ThemeSwitch() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const platform = usePlatform();
   const isMobile = platform === PLATFORM.MOBILE;
-
-  useEffect(() => setMounted(true), []);
 
   const handleThemeToggle = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");

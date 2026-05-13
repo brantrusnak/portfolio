@@ -56,7 +56,9 @@ export function CardExpandedDesktop({
   }, [isExpanded, onCloseAction, onExitingChangeAction]);
 
   const closeRef = useRef(close);
-  closeRef.current = close;
+  useEffect(() => {
+    closeRef.current = close;
+  }, [close]);
 
   useEffect(() => {
     if (!isExpanded) return;

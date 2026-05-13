@@ -38,12 +38,8 @@ export function useTooltip({
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
-  const data = useFloating({
-    placement,
-    open,
-    onOpenChange: setOpen,
-    whileElementsMounted: autoUpdate,
-    middleware: [
+  const middleware = useMemo(() => {
+    const chain = [
       offset(8),
       flip({
         crossAxis: placement.includes("-"),
@@ -51,8 +47,20 @@ export function useTooltip({
         padding: 5,
       }),
       shift({ padding: 5 }),
-      ...(showArrow ? [arrow({ element: arrowRef })] : []),
-    ],
+    ];
+    if (showArrow) {
+      // eslint-disable-next-line react-hooks/refs -- @floating-ui `arrow` keeps the ref for layout updates; it does not read `current` during React render
+      chain.push(arrow({ element: arrowRef }));
+    }
+    return chain;
+  }, [placement, showArrow]);
+
+  const data = useFloating({
+    placement,
+    open,
+    onOpenChange: setOpen,
+    whileElementsMounted: autoUpdate,
+    middleware,
   });
   const { isMounted, styles } = useTransitionStyles(data.context);
 

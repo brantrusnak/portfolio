@@ -1,7 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect, useRef, useCallback, useContext } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useContext,
+  useSyncExternalStore,
+} from "react";
 import { Button } from "@/components/ui";
 import { SECTION_ID, sections } from "@/components/Navigation/Navbar";
 import ThemeSwitch from "@/components/Navigation/ThemeSwitch";
@@ -20,7 +27,11 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
   const [underlineReady, setUnderlineReady] = useState(false);
   const linkRefs = useRef<HTMLSpanElement[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [hasMounted, setHasMounted] = useState(false);
+  const hasMounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
   const [isResizing, setIsResizing] = useState(false);
   const resizeTimer = useRef<NodeJS.Timeout | null>(null);
   const { isContactDropdownOpen } = useContext(NavbarContext);
@@ -43,8 +54,6 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
       setUnderlineReady(false);
     }
   }, [hoveredSection, activeSection, isContactDropdownOpen]);
-
-  useEffect(() => setHasMounted(true), []);
 
   useEffect(() => {
     const handleResize = () => {

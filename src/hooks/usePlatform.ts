@@ -15,11 +15,13 @@ export function usePlatform(breakpoint = 768): PLATFORM {
     }
 
     const mediaQuery = window.matchMedia(`(max-width: ${breakpoint}px)`);
-    setPlatform(mediaQuery.matches ? PLATFORM.MOBILE : PLATFORM.DESKTOP);
-
     const handler = (event: MediaQueryListEvent) => {
       setPlatform(event.matches ? PLATFORM.MOBILE : PLATFORM.DESKTOP);
     };
+
+    queueMicrotask(() => {
+      setPlatform(mediaQuery.matches ? PLATFORM.MOBILE : PLATFORM.DESKTOP);
+    });
 
     mediaQuery.addEventListener("change", handler);
 
