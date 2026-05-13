@@ -1,8 +1,10 @@
 import coreWebVitals from "eslint-config-next/core-web-vitals";
+import typescript from "eslint-config-next/typescript";
 import importPlugin from "eslint-plugin-import";
 
 const eslintConfig = [
   ...coreWebVitals,
+  ...typescript,
 
   {
     plugins: { import: importPlugin },
