@@ -1,11 +1,20 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-
-function noopSubscribe() {
-  return () => {};
-}
+import { useEffect, useState } from "react";
 
 export function useHasMounted(): boolean {
-  return useSyncExternalStore(noopSubscribe, () => true, () => false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    queueMicrotask(() => {
+      if (!alive) return;
+      setMounted(true);
+    });
+    return () => {
+      alive = false;
+    };
+  }, []);
+
+  return mounted;
 }

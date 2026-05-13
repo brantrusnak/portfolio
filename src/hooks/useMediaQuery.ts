@@ -3,12 +3,7 @@
 import { useState, useEffect } from "react";
 
 export function useMediaQuery(query: string): boolean {
-  const getInitialMatch = () =>
-    typeof window !== "undefined" && typeof window.matchMedia === "function"
-      ? window.matchMedia(query).matches
-      : false;
-
-  const [matches, setMatches] = useState(getInitialMatch);
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
     if (
