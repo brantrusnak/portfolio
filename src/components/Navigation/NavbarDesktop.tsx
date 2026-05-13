@@ -7,7 +7,6 @@ import {
   useRef,
   useCallback,
   useContext,
-  useSyncExternalStore,
 } from "react";
 import { Button } from "@/components/ui";
 import { SECTION_ID, sections } from "@/components/Navigation/Navbar";
@@ -16,6 +15,7 @@ import LocaleDropdown from "./LocaleDropdown";
 import { useTranslations, useLocale } from "next-intl";
 import ContactDropdown from "./ContactDropdown";
 import { NavbarContext } from "./NavbarContext";
+import { useHasMounted } from "@/hooks/useHasMounted";
 
 interface NavbarDesktopProps {
   activeSection: SECTION_ID;
@@ -27,11 +27,7 @@ export default function NavbarDesktop({ activeSection }: NavbarDesktopProps) {
   const [underlineReady, setUnderlineReady] = useState(false);
   const linkRefs = useRef<HTMLSpanElement[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const hasMounted = useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false,
-  );
+  const hasMounted = useHasMounted();
   const [isResizing, setIsResizing] = useState(false);
   const resizeTimer = useRef<NodeJS.Timeout | null>(null);
   const { isContactDropdownOpen } = useContext(NavbarContext);
