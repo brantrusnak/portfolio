@@ -18,18 +18,23 @@ export function useMediaQuery(query: string): boolean {
       return;
     }
 
+    let mounted = true;
+
     const media = window.matchMedia(query);
     const listener = (event: MediaQueryListEvent) => {
+      if (!mounted) return;
       setMatches(event.matches);
     };
 
     queueMicrotask(() => {
+      if (!mounted) return;
       setMatches(media.matches);
     });
 
     media.addEventListener("change", listener);
 
     return () => {
+      mounted = false;
       media.removeEventListener("change", listener);
     };
   }, [query]);
