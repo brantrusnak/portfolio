@@ -22,6 +22,7 @@ export function usePlatform(breakpoint = 768): PLATFORM {
       setPlatform(event.matches ? PLATFORM.MOBILE : PLATFORM.DESKTOP);
     };
 
+    // queueMicrotask defers setPlatform so the SSR render (initial PLATFORM.SSR) paints first on the client, then we sync to MOBILE/DESKTOP from mediaQuery.matches—reduces hydration churn; also defers setState out of the synchronous effect body.
     queueMicrotask(() => {
       if (!mounted) return;
       setPlatform(mediaQuery.matches ? PLATFORM.MOBILE : PLATFORM.DESKTOP);

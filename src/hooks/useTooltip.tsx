@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import {
   useFloating,
   autoUpdate,
@@ -33,13 +33,16 @@ export function useTooltip({
   showArrow = true,
 }: TooltipOptions = {}) {
   const [uncontrolledOpen, setUncontrolledOpen] = useState(initialOpen);
-  const arrowRef = useRef(null);
+  const [arrowElement, setArrowElement] = useState<Element | null>(null);
+  const arrowRef = useCallback((node: Element | null) => {
+    setArrowElement(node);
+  }, []);
 
   const open = controlledOpen ?? uncontrolledOpen;
   const setOpen = setControlledOpen ?? setUncontrolledOpen;
 
-  const middleware = useMemo(() => {
-    const chain = [
+  const middleware = useMemo(
+    () => [
       offset(8),
       flip({
         crossAxis: placement.includes("-"),
@@ -47,13 +50,10 @@ export function useTooltip({
         padding: 5,
       }),
       shift({ padding: 5 }),
-    ];
-    if (showArrow) {
-      // eslint-disable-next-line react-hooks/refs -- @floating-ui `arrow` keeps the ref for layout updates; it does not read `current` during React render
-      chain.push(arrow({ element: arrowRef }));
-    }
-    return chain;
-  }, [placement, showArrow]);
+      ...(showArrow ? [arrow({ element: arrowElement })] : []),
+    ],
+    [placement, showArrow, arrowElement],
+  );
 
   const data = useFloating({
     placement,
@@ -89,6 +89,6 @@ export function useTooltip({
       isMounted,
       styles,
     }),
-    [open, setOpen, interactions, data, isMounted, styles],
+    [open, setOpen, interactions, data, isMounted, styles, arrowRef],
   );
 }
